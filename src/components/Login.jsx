@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { authenticationService } from "../_services/authentication.service.js";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import "../styles/styles.css";
 
 var jwt = require("jsonwebtoken");
