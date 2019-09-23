@@ -1,0 +1,46 @@
+.login {
+    padding: 40px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.container label {
+    color: #7e7d7d;
+}
+
+.logo {
+    height: 200px;
+    width: 200px;
+}
+
+.form-rounded {
+    border-radius: 2rem;
+    margin: 0%;
+    float: none;
+    text-align: center;
+}
+
+.btn {
+    color: white;
+    border-radius: 2rem;
+}
+
+
+/* .button__group {
+    padding: 15px;
+    display: flex;
+}
+
+.btn:hover{
+    color: ghostwhite;
+}
+
+.google {
+    background-color: #DB4437;
+}
+
+.facebook {
+    background-color: #3b5998;
+} */
