@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { authenticationService } from "../_services/authentication.service.js";
 
-import logo from "../assets/logo.svg";
+import logo from "../assets/PetroleraCorpLogo.png";
 import "../styles/styles.css";
 
 var jwt = require("jsonwebtoken");
@@ -35,7 +35,6 @@ class Login extends Component {
       <div>
         <div className="login mx-auto d-block">
           <img src={logo} className="logo rounded mx-auto d-bloc" alt="logo" />
-          <h4>Petrolera Corp.</h4>
         </div>
         <div className="login">
           <h1>Iniciar Sesión</h1>
