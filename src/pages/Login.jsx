@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom"
 import { authenticationService } from "../_services/authentication.service.js";
 
 import logo from "../assets/PetroleraCorpLogo.png";
@@ -6,13 +7,13 @@ import "../styles/styles.css";
 
 var jwt = require("jsonwebtoken");
 
-
 class Login extends Component {
   state = {
     form: {
       user: "",
       password: ""
-    }
+    },
+    error: ""
   };
 
   handleChange = e => {
@@ -26,7 +27,20 @@ class Login extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    authenticationService.login(this.state.form.user, this.state.form.password)
+    authenticationService
+      .login(this.state.form.user, this.state.form.password)
+      .then(
+        user => {
+          const { from } = this.props.location.state || {
+            from: { pathname: "/home" }
+          };
+          this.props.history.push(from);
+        },
+        error => {
+          this.setState({ error: error })
+          ReactDOM.render(<h2>{error}</h2>, document.getElementById('loginError'));
+        }
+      );
     console.log("form submitted");
   };
 
@@ -42,7 +56,6 @@ class Login extends Component {
         <div className="container-fluid h-100">
           <div className="row justify-content-center align-items-center h-100">
             <div className="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <input
@@ -71,7 +84,7 @@ class Login extends Component {
                   Entrar
                 </button>
               </form>
-
+              <div id="loginError"></div>
             </div>
           </div>
         </div>
