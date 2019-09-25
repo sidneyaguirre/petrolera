@@ -5,7 +5,7 @@ import { authenticationService } from "../_services/authentication.service.js";
 import logo from "../assets/PetroleraCorpLogo.png";
 import "../styles/styles.css";
 
-var jwt = require("jsonwebtoken");
+//var jwt = require("jsonwebtoken");
 
 class Login extends Component {
   state = {
