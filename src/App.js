@@ -15,7 +15,6 @@ import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentUser: null
     };
@@ -38,10 +37,10 @@ class App extends Component {
         <div className="App">
           <Router history={history}>
             <div>
-              <PrivateRoute exact path="/home" component={HomePage} />
               <Route exact path="/" component={Login} />
-              <Route exact path="/report-incident" component={ReportIncident} />
-              <Route exact path="/register-user" component={RegisterUser} />
+              <PrivateRoute exact path="/home" component={HomePage} />
+              <PrivateRoute exact path="/report-incident" component={ReportIncident} />
+              <PrivateRoute exact path="/register-user" component={RegisterUser} />
             </div>
           </Router>
         </div>
