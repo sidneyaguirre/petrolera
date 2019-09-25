@@ -4,6 +4,7 @@ import { Router, Route } from "react-router-dom";
 import { history } from "./_helpers/history";
 import { authenticationService } from "./_services/authentication.service";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { Guard } from "./components/Guard"
 //import { from } from "rxjs";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
@@ -40,7 +41,7 @@ class App extends Component {
               <Route exact path="/" component={Login} />
               <PrivateRoute exact path="/home" component={HomePage} />
               <PrivateRoute exact path="/report-incident" component={ReportIncident} />
-              <PrivateRoute exact path="/register-user" component={RegisterUser} />
+              <Guard exact path="/register-user" component={RegisterUser} />
             </div>
           </Router>
         </div>

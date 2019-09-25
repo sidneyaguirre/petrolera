@@ -54,9 +54,7 @@ class RegisterUser extends Component {
     e.preventDefault();
     console.log("Form submitted");
     this.createUser(this.state.form).then(() => {
-      console.log(this.state.form);
       this.clearForm();
-      //this.setState(initstate);
     });
   };
 
@@ -93,8 +91,8 @@ class RegisterUser extends Component {
       }
     })
       .then(res => res.json())
-      .catch(error => console.error("Error:", error))
-      .then(response => console.log("Success:", response));
+      // .catch(error => console.error("Error:", error))
+      // .then(response => console.log("Success:", response));
   };
 
   render() {

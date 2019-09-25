@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom"
 import { Link } from "react-router-dom"
 
 import { history } from "../_helpers/history";
@@ -23,13 +24,22 @@ logout() {
     history.push('/');
 }
 
+isAdmin(){
+  var userAdmin = JSON.parse(localStorage.currentUser).role;
+  console.log(userAdmin);
+  if(userAdmin === "admin"){
+    return false;
+  }
+  return true;
+}
+
   render() {
     return (
       <div>
         <div className="sidebar">
           <Link className="active" to="/home">Inicio</Link>
           <Link to="/report-incident">Reportar Incidente</Link>
-          <Link to="/register-user">Registrar Usuario</Link>
+          <Link hidden={this.isAdmin()}  to="/register-user">Registrar Usuario</Link>
           <a onClick={this.logout}>Salir</a>
         </div>
       </div>
