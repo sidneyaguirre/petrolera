@@ -8,6 +8,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage"
 import ReportIncident from "./pages/ReportIncident";
+import RegisterUser from "./pages/RegisterUser"
 
 import "./App.css";
 
@@ -39,6 +40,7 @@ class App extends Component {
             <PrivateRoute exact path="/home" component={HomePage} />
             <Route exact path="/" component={Login} />
             <Route exact path="/report" component={ReportIncident} />
+            <Route exact path="/register-user" component={RegisterUser} />
           </div>
         </Router>
       </div>
