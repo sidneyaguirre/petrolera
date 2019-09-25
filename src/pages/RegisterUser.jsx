@@ -1,17 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import FormRegisterUser from "../components/FormRegisterUser";
 
-const initstate = {
-  userName: "",
-  email: "",
-  role: "",
-  id_provider: "",
-  documentType: "",
-  documentNumber: "",
-  password1: "",
-  password2: ""
-};
+import Navbar from "../components/Navbar";
+import FormRegisterUser from "../components/FormRegisterUser";
 
 class RegisterUser extends Component {
   state = {
@@ -25,6 +16,19 @@ class RegisterUser extends Component {
       password1: "",
       password2: ""
     }
+  };
+
+  clearForm = () => {
+    this.setState({
+      userName: "",
+      email: "",
+      role: "",
+      id_provider: "",
+      documentType: "",
+      documentNumber: "",
+      password1: "",
+      password2: ""
+    });
   };
 
   handleChange = e => {
@@ -51,7 +55,8 @@ class RegisterUser extends Component {
     console.log("Form submitted");
     this.createUser(this.state.form).then(() => {
       console.log(this.state.form);
-      this.setState(initstate);
+      this.clearForm();
+      //this.setState(initstate);
     });
   };
 
@@ -94,11 +99,13 @@ class RegisterUser extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
+        <div className="page">
+            <Navbar className="navbar" />
+          <div className="content">
           <div className="row p-4 pt-5 h-100">
             <div className="col">
               <FormRegisterUser
+                id="register-user"
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
                 formValues={this.state}
@@ -106,8 +113,8 @@ class RegisterUser extends Component {
               <div id="passwordAlert"></div>
             </div>
           </div>
+          </div>
         </div>
-      </div>
     );
   }
 }

@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import TimePickers from "./TimePicker";
+// import TimePickers from "./TimePicker";
 
 class FormReportIncident extends Component {
-  
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
         <div>
           <div className="col">
-            <h3 className="h3 text-primary">Registrar Incidente</h3>
+            <h3 className="h3 text-primary">Reportar Incidente</h3>
             <p className="lead">
-              Registra un nuevo incidente en la base de datos
+              Reporta un nuevo incidente.
             </p>
           </div>
         </div>
@@ -65,6 +64,43 @@ class FormReportIncident extends Component {
 
         <div className="row">
           <div className="col">
+            <div className="form-group">
+              <label className="mr-sm-2">
+                <>Fecha y Hora de Apertura</>
+              </label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                className="form-control"
+                name="category"
+                maxLength="20"
+                value={this.props.formValues.start_date}
+                placeholder="DD/MM/YYYY , HH:MM"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="col">
+            <div className="form-group">
+              <label className="mr-sm-2">
+                <>Fecha y Hora de Clausura</>
+              </label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                className="form-control"
+                name="category"
+                maxLength="20"
+                value={this.props.formValues.end_date}
+                placeholder="DD/MM/YYYY , HH:MM"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
             <label className="mr-sm-2">
               <>Impacto</>
             </label>
@@ -99,27 +135,10 @@ class FormReportIncident extends Component {
           </div>
         </div>
 
-        <div className="form-group">
-          <div className="row">
-            <div className="col">
-              <label className="mr-sm-2">
-                <>Fecha de Apertura</>
-              </label>
-              <TimePickers />
-            </div>
-
-            <div className="col">
-              <label className="mr-sm-2">
-                <>Fecha de Clausura</>
-              </label>
-              <TimePickers />
-            </div>
-          </div>
-        </div>
         <button
           type="submit"
           onClick={console.log("button clicked")}
-          className="btn btn-outline-primary float-center"
+          className="btn btn-outline-primary float-right"
         >
           Guardar Reporte
         </button>

@@ -1,0 +1,33 @@
+:root {
+    --my-color: #3c3c3c;
+    --main-font: "Aleo", serif;
+    --secondary-font: "Open Sans", sans-serif;
+  }
+  
+  .login {
+    padding: 10px;
+    font-family: var(--secondary-font);
+    color: var(--my-color);
+  }
+  
+  .logo {
+    height: 350px;
+    width: 350px;
+  }
+  
+  .form-rounded {
+    border-radius: 2rem;
+    margin: 0%;
+    float: none;
+    text-align: center;
+    font-family: var(--secondary-font);
+  }
+  
+  .btn {
+    color: white;
+    border-radius: 2rem;
+    font-family: var(--secondary-font);
+    background-color: #188bd8;
+    margin-top: 30px;
+  }
+  

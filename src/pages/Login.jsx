@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
 import { authenticationService } from "../_services/authentication.service.js";
 
 import logo from "../assets/PetroleraCorpLogo.png";
-import "../styles/styles.css";
+import "../styles/login.css";
 
 //var jwt = require("jsonwebtoken");
 

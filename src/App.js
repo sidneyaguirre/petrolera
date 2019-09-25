@@ -6,9 +6,9 @@ import { authenticationService } from "./_services/authentication.service";
 import { PrivateRoute } from "./components/PrivateRoute";
 //import { from } from "rxjs";
 import Login from "./pages/Login";
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage";
 import ReportIncident from "./pages/ReportIncident";
-import RegisterUser from "./pages/RegisterUser"
+import RegisterUser from "./pages/RegisterUser";
 
 import "./App.css";
 
@@ -34,15 +34,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Router history={history}>
-          <div>
-            <PrivateRoute exact path="/home" component={HomePage} />
-            <Route exact path="/" component={Login} />
-            <Route exact path="/report" component={ReportIncident} />
-            <Route exact path="/register-user" component={RegisterUser} />
-          </div>
-        </Router>
+      <div>
+        <div className="App">
+          <Router history={history}>
+            <div>
+              <PrivateRoute exact path="/home" component={HomePage} />
+              <Route exact path="/" component={Login} />
+              <Route exact path="/report-incident" component={ReportIncident} />
+              <Route exact path="/register-user" component={RegisterUser} />
+            </div>
+          </Router>
+        </div>
       </div>
     );
   }

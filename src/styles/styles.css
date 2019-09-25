@@ -1,40 +1,38 @@
 :root {
-    --my-color: #3c3c3c;
-    --main-font: 'Aleo', serif;
-    --secondary-font: 'Open Sans', sans-serif;
-  }
-
-.login {
-    padding: 10px;
-    font-family: var(--secondary-font);
-    color: var(--my-color)
+  --my-color: #3c3c3c;
+  --main-font: "Aleo", serif;
+  --secondary-font: "Open Sans", sans-serif;
 }
 
+.page {
+  display: grid;
+  grid-template-columns: repeat(2);
+}
+
+.navbar {
+  grid-column: 1;
+  grid-row: 1;
+  display: table-cell;
+}
+
+.content {
+  grid-column: 2;
+  grid-row: 1;
+  display: table-cell;
+}
+/* 
 .container {
-    padding: 20px;
+  padding: 20px;
 }
 
 .container label {
-    color: #7e7d7d;
+  color: #7e7d7d;
 }
-
-.logo {
-    height: 350px;
-    width: 350px;
-}
-
-.form-rounded {
-    border-radius: 2rem;
-    margin: 0%;
-    float: none;
-    text-align: center;
-    font-family: var(--secondary-font);
-}
-
+ */
 .btn {
-    color: white;
-    border-radius: 2rem;
-    font-family: var(--secondary-font);
-    background-color: #188bd8;
-    margin-top: 30px;
+  color: white;
+  border-radius: 2rem;
+  font-family: var(--secondary-font);
+  background-color: #188bd8;
+  margin-top: 30px;
 }

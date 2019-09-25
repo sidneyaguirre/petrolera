@@ -12,10 +12,9 @@ class FormRegisterUser extends Component {
       <form onSubmit={this.props.onSubmit}>
         <div>
           <div className="col">
-            <h3 className="h3 text-primary">¡Regístrate!</h3>
+            <h3 className="h3 text-primary">Registrar Nuevo Usuario</h3>
             <p className="lead">
-              Para registrarte como nuevo monitor sólo debes llenar el siguiente
-              formulario. <br /> Todos los campos son requeridos
+              El nuevo usuario tendrá un perfil propio donde podrá registrar un incidente.<br/>Todos los campos son requeridos
             </p>
           </div>
         </div>

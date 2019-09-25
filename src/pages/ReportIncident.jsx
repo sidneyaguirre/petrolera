@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Navbar from "../components/Navbar";
 import FormReportIncident from "../components/FormReportIncident";
 
 class ReportIncident extends Component {
@@ -33,16 +34,19 @@ class ReportIncident extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row p-4 pt-5 h-100">
-          <div className="col-sm">
-            <FormReportIncident
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              formValues={this.state.form}
-              className="col"
-            />
-            <div id="passwordAlert"></div>
+      <div className="page">
+        <Navbar className="navbar" />
+        <div className="content">
+          <div className="row p-4 pt-5 h-100">
+            <div className="col-sm">
+              <FormReportIncident
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                formValues={this.state.form}
+                className="col"
+              />
+              <div id="passwordAlert"></div>
+            </div>
           </div>
         </div>
       </div>

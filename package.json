@@ -8,6 +8,7 @@
     "@material-ui/pickers": "^3.2.6",
     "bootstrap": "^4.3.1",
     "date-fns": "^2.3.0",
+    "form-handler": "^2.2.1",
     "history": "^4.10.1",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.9.0",
