@@ -46,7 +46,8 @@
       position: relative;
     }
     .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+    div.content {margin-left: 0;
+      padding: 1px 5px;}
   }
 
   .thumbnail-logo {

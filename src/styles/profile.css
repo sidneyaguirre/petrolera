@@ -1,5 +1,5 @@
 .profile-card {
-  margin: 80px;
+  margin: 50px;
 }
 
 .person-img {
@@ -40,4 +40,15 @@
 
 .fa-google-plus-square {
   color: #dd4b39;
+}
+
+@media screen and (max-width: 400px) {
+  .profile-card {
+    margin: 5px;
+  }
+
+  .person-img {
+    height: 100px;
+    width: 100px;
+  }
 }
