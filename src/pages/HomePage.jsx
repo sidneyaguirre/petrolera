@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { authenticationService } from "../_services/authentication.service";
 
 import Navbar from "../components/Navbar";
-import Profile from "../components/Profile"
+import Profile from "../components/Profile";
+import "../styles/profile.css"
 
 class HomePage extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className="page">
-          <Navbar className="navbar" />
+        <Navbar className="navbar" />
         <div className="content">
           <Profile user={this.state.currentUser} />
         </div>

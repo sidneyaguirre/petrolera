@@ -19,8 +19,8 @@ class Profile extends Component {
             <div className="card-text">{this.props.user.role}</div>
             <div className="card-text">{this.props.user.email}</div>
             <div>
-            <i class="fab fa-google-plus-square"></i>
-            <i class="fab fa-twitter-square"></i>
+            <i className="fab fa-google-plus-square"></i>
+            <i className="fab fa-twitter-square"></i>
             <i className="fab fa-facebook"></i>
           </div>
           </div>

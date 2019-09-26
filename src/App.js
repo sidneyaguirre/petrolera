@@ -9,6 +9,7 @@ import { Guard } from "./components/Guard"
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
 import ReportIncident from "./pages/ReportIncident";
+// import ListIncidents from "./pages/ListIncidents"
 import RegisterUser from "./pages/RegisterUser";
 
 import "./App.css";
@@ -42,6 +43,7 @@ class App extends Component {
               <Route exact path="/" component={Login} />
               <PrivateRoute exact path="/home" component={HomePage} />
               <PrivateRoute exact path="/report-incident" component={ReportIncident} />
+              {/* <PrivateRoute exact path="/incidents" component={ListIncidents} /> */}
               <Guard exact path="/register-user" component={RegisterUser} />
             </div>
           </Router>

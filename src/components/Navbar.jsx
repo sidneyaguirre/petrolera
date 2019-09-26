@@ -38,13 +38,16 @@ class Navbar extends Component {
 
   getPathname() {
     var path = window.location.pathname;
-    var color = '#198bd8'
+    var color = "#198bd8";
     switch (path) {
       case "/home":
         document.getElementById("home").style.background = color;
         break;
       case "/report-incident":
         document.getElementById("report-incident").style.background = color;
+        break;
+      case "/incidents":
+        document.getElementById("incidents").style.background = color;
         break;
       case "/register-user":
         document.getElementById("register-user").style.background = color;
@@ -67,6 +70,9 @@ class Navbar extends Component {
           </Link>
           <Link id="report-incident" to="/report-incident">
             Reportar Incidente
+          </Link>
+          <Link id="incidents" to="/incidents">
+            Listar Incidentes
           </Link>
           <Link hidden={this.isAdmin()} id="register-user" to="/register-user">
             Registrar Usuario
