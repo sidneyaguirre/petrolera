@@ -34,7 +34,7 @@ class FormRegisterUser extends Component {
                     type="text"
                     className="form-control"
                     name="userName"
-                    maxLength="20"
+                    maxLength="60"
                     value={this.props.formValues.userName}
                     required
                   />
@@ -82,8 +82,8 @@ class FormRegisterUser extends Component {
                   required
                 >
                   <option value="">Selecione...</option>
-                  <option value="CC">Cédula de Ciudadanía</option>
-                  <option value="CE">Cédula de Extrangería</option>
+                  <option value="cc">Cédula de Ciudadanía</option>
+                  <option value="ce">Cédula de Extrangería</option>
                 </select>
               </div>
 

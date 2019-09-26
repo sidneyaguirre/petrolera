@@ -17,7 +17,6 @@ class HomePage extends Component {
   componentDidMount() {}
 
   render() {
-    const { currentUser } = this.state;
     return (
       <div className="page">
           <Navbar className="navbar" />

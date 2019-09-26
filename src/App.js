@@ -32,12 +32,13 @@ class App extends Component {
     history.push("/");
   }
 
+
   render() {
     return (
       <div>
         <div className="App">
           <Router history={history}>
-            <div>
+            <div id="routes">
               <Route exact path="/" component={Login} />
               <PrivateRoute exact path="/home" component={HomePage} />
               <PrivateRoute exact path="/report-incident" component={ReportIncident} />

@@ -25,7 +25,7 @@ class FormReportIncident extends Component {
                 type="text"
                 className="form-control"
                 name="title"
-                maxLength="20"
+                maxLength="35"
                 value={this.props.formValues.title}
                 required
               />
@@ -42,7 +42,7 @@ class FormReportIncident extends Component {
                 type="text"
                 className="form-control"
                 name="category"
-                maxLength="20"
+                maxLength="30"
                 value={this.props.formValues.category}
                 required
               />
@@ -109,9 +109,9 @@ class FormReportIncident extends Component {
               required
             >
               <option value="">Selecione...</option>
-              <option value="Bajo">Bajo</option>
-              <option value="Medio">Medio</option>
-              <option value="Alto">Alto</option>
+              <option value="bajo">Bajo</option>
+              <option value="medio">Medio</option>
+              <option value="alto">Alto</option>
             </select>
           </div>
 
@@ -128,10 +128,10 @@ class FormReportIncident extends Component {
               required
             >
               <option value="">Selecione...</option>
-              <option value="Abierto">Abierto</option>
-              <option value="En proceso">En proceso</option>
-              <option value="Suspendido">Suspendido</option>
-              <option value="Cerrado">Cerrado</option>
+              <option value="abierto">Abierto</option>
+              <option value="en_proceso">En proceso</option>
+              <option value="suspendido">Suspendido</option>
+              <option value="cerrado">Cerrado</option>
             </select>
           </div>
         </div>

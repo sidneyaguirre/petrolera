@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 import Navbar from "../components/Navbar";
 import FormReportIncident from "../components/FormReportIncident";
-import MessageModal from "../components/MessageModal";
+// import MessageModal from "../components/MessageModal";
 
 class ReportIncident extends Component {
   state = {

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import Navbar from "../components/Navbar";
 import FormRegisterUser from "../components/FormRegisterUser";
-import MessageModal from "../components/MessageModal";
+// import MessageModal from "../components/MessageModal";
 
 class RegisterUser extends Component {
   state = {

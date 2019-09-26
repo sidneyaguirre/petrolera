@@ -18,11 +18,11 @@ class Profile extends Component {
             </div>
             <div className="card-text">{this.props.user.role}</div>
             <div className="card-text">{this.props.user.email}</div>
+            <div>
+            <i class="fab fa-google-plus-square"></i>
+            <i class="fab fa-twitter-square"></i>
+            <i className="fab fa-facebook"></i>
           </div>
-          <div>
-            <a href="#0" class="fa fa-facebook"></a>
-            <a href="#0" class="fa fa-twitter"></a>
-            <a href="#0" class="fa fa-google"></a>
           </div>
         </div>
       </div>

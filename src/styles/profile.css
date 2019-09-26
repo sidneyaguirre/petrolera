@@ -1,37 +1,43 @@
 .profile-card {
-    margin: 80px;
+  margin: 80px;
 }
 
 .person-img {
-    height: 150px;
-    width: 150px;
+  height: 150px;
+  width: 150px;
 }
 
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
-  }
-  
-  .fa:hover {
-      opacity: 0.7;
-  }
-  
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-  
-  .fa-twitter {
-    background: #55ACEE;
-    color: white;
-  }
-  
-  .fa-google {
-    background: #dd4b39;
-    color: white;
-  }
+.card,
+.card-img-top {
+  padding: 10px;
+}
+
+.card-img-top {
+  background-image: url("../assets/banner.jpg");
+}
+
+.fab {
+  padding: 5px;
+  margin: 5px;
+  font-size: 40px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fab:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.fa-google-plus-square {
+  color: #dd4b39;
+}
