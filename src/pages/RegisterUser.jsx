@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import Navbar from "../components/Navbar";
 import FormRegisterUser from "../components/FormRegisterUser";
+import MessageModal from "../components/MessageModal";
 
 class RegisterUser extends Component {
   state = {
@@ -91,15 +92,18 @@ class RegisterUser extends Component {
       }
     })
       .then(res => res.json())
-      // .catch(error => console.error("Error:", error))
-      // .then(response => console.log("Success:", response));
+      .catch(error => console.error("Error:", error))
+      .then(response => {
+        console.log("Success:", response);
+        window.alert('Resultado: '+ JSON.stringify(response.response.msg));
+      });
   };
 
   render() {
     return (
-        <div className="page">
-            <Navbar className="navbar" />
-          <div className="content">
+      <div className="page">
+        <Navbar className="navbar" />
+        <div className="content">
           <div className="row p-4 pt-5 h-100">
             <div className="col">
               <FormRegisterUser
@@ -111,8 +115,8 @@ class RegisterUser extends Component {
               <div id="passwordAlert"></div>
             </div>
           </div>
-          </div>
         </div>
+      </div>
     );
   }
 }

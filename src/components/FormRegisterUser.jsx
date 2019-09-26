@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class FormRegisterUser extends Component {
-  
   handleClick = e => {
     /* prevent the button to submit info */
     console.log("button clicked");
@@ -14,7 +13,10 @@ class FormRegisterUser extends Component {
           <div className="col">
             <h3 className="h3 text-primary">Registrar Nuevo Usuario</h3>
             <p className="lead">
-              El nuevo usuario tendrá un perfil propio donde podrá registrar un incidente.<br/>Todos los campos son requeridos
+              El nuevo usuario tendrá un perfil propio donde podrá registrar un
+              incidente.
+              <br />
+              Todos los campos son requeridos
             </p>
           </div>
         </div>
@@ -44,15 +46,20 @@ class FormRegisterUser extends Component {
                   <label>
                     <>Rol</>
                   </label>
-                  <input
+                  <select
                     onChange={this.props.onChange}
                     type="text"
                     className="form-control"
                     name="role"
-                    maxLength="30"
                     value={this.props.formValues.role}
                     required
-                  />
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuario</option>
+                    <option value="investigator">Investigador</option>
+                    <option value="supervisor">Supervisor</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -76,7 +83,7 @@ class FormRegisterUser extends Component {
                 >
                   <option value="">Selecione...</option>
                   <option value="CC">Cédula de Ciudadanía</option>
-                  <option value="TI">Tarjeta de Identidad</option>
+                  <option value="CE">Cédula de Extrangería</option>
                 </select>
               </div>
 

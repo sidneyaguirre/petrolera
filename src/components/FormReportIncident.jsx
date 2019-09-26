@@ -9,7 +9,7 @@ class FormReportIncident extends Component {
           <div className="col">
             <h3 className="h3 text-primary">Reportar Incidente</h3>
             <p className="lead">
-              Reporta un nuevo incidente.
+              Reporta un nuevo incidente
             </p>
           </div>
         </div>
@@ -70,12 +70,10 @@ class FormReportIncident extends Component {
               </label>
               <input
                 onChange={this.props.onChange}
-                type="text"
+                type="datetime-local"
                 className="form-control"
-                name="category"
-                maxLength="20"
+                name="start_date"
                 value={this.props.formValues.start_date}
-                placeholder="DD/MM/YYYY , HH:MM"
                 required
               />
             </div>
@@ -88,12 +86,10 @@ class FormReportIncident extends Component {
               </label>
               <input
                 onChange={this.props.onChange}
-                type="text"
+                type="datetime-local"
                 className="form-control"
-                name="category"
-                maxLength="20"
+                name="end_date"
                 value={this.props.formValues.end_date}
-                placeholder="DD/MM/YYYY , HH:MM"
               />
             </div>
           </div>
@@ -123,15 +119,20 @@ class FormReportIncident extends Component {
             <label>
               <>Estado</>
             </label>
-            <input
+            <select
               onChange={this.props.onChange}
-              type="password"
+              type="text"
               className="form-control"
               name="state"
-              maxLength="20"
               value={this.props.formValues.state}
               required
-            />
+            >
+              <option value="">Selecione...</option>
+              <option value="Abierto">Abierto</option>
+              <option value="En proceso">En proceso</option>
+              <option value="Suspendido">Suspendido</option>
+              <option value="Cerrado">Cerrado</option>
+            </select>
           </div>
         </div>
 
