@@ -31,6 +31,8 @@ class App extends Component {
 
   logout() {
     authenticationService.logout();
+    console.log(history);
+    
     history.push("/");
   }
 

@@ -33,7 +33,6 @@ class ListIncidents extends Component {
                 state: element.state
               });
             }
-            // console.log(element);
           })
         ).then(() => {
           this.setState({

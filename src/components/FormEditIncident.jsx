@@ -19,7 +19,6 @@ class FormEditIncident extends Component {
                 <>Nombre del Incidente</>
               </label>
               <input
-                // onChange={this.props.onChange}
                 type="text"
                 className="form-control"
                 name="title"
@@ -37,7 +36,6 @@ class FormEditIncident extends Component {
                 <>Categoría</>
               </label>
               <input
-                // onChange={this.props.onChange}
                 type="text"
                 className="form-control"
                 name="category"
@@ -70,7 +68,6 @@ class FormEditIncident extends Component {
                 <>Fecha y Hora de Apertura</>
               </label>
               <input
-                // onChange={this.props.onChange}
                 type="datetime-local"
                 className="form-control"
                 name="start_date"
@@ -108,7 +105,6 @@ class FormEditIncident extends Component {
               className="form-control"
               name="impact"
               value={this.props.formValues.impact}
-              readOnly
               required
             >
               <option value="">Selecione...</option>
@@ -175,7 +171,6 @@ class FormEditIncident extends Component {
 
         <button
           type="submit"
-          onClick={console.log("button clicked")}
           className="btn btn-outline-primary float-right"
         >
           Guardar Cambios

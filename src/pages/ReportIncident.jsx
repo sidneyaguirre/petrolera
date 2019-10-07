@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import FormReportIncident from "../components/FormReportIncident";
-// import MessageModal from "../components/MessageModal";
 
 class ReportIncident extends Component {
   state = {
@@ -38,7 +37,6 @@ class ReportIncident extends Component {
 
   componentDidMount = () => {
     let user = JSON.parse(localStorage.currentUser).userName;
-    // console.log(user);
     this.setState({
       form: {
         ...this.state.form,
@@ -50,9 +48,7 @@ class ReportIncident extends Component {
   handleChange = e => {
     this.setState({
       form: {
-        /* we get the previous values in the form*/
         ...this.state.form,
-        /* and add a new one */
         [e.target.name]: e.target.value
       }
     });
@@ -69,7 +65,6 @@ class ReportIncident extends Component {
   reportIncident = async info => {
     var url = "https://ing-web-project.herokuapp.com/incident";
     var token = JSON.parse(localStorage.currentUser).jwtoken;
-    // console.log("my token", token);
     var data = {
       title: info.title,
       description: info.description,
@@ -95,7 +90,6 @@ class ReportIncident extends Component {
       .catch(error => console.error("Error:", error))
       .then(response => {
         console.log("Success:", response);
-        // this.showMessage(response.response.msg);
         window.alert("Resultado: " + JSON.stringify(response.response.msg));
       });
   };

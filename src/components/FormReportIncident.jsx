@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import TimePickers from "./TimePicker";
 
 class FormReportIncident extends Component {
   render() {
