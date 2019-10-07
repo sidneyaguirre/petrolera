@@ -40,10 +40,9 @@ class ReportIncident extends Component {
     this.setState({
       form: {
         ...this.state.form,
-        createdBy: user,
+        createdBy: user
       }
     });
-    console.log(this.state.form);
   };
 
   handleChange = e => {
