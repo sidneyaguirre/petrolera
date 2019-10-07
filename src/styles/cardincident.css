@@ -7,9 +7,30 @@ input[type=number]::-webkit-outer-spin-button {
 
 .card {
   width: 18rem;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .incident-list {
   list-style: none;
+}
+
+/* .incident-element-list {
+  display: inline;
+} */
+
+.card-title {
+  color: #198bd8;
+  font-weight: bolder;
+}
+
+.card-description {
+  background-color: lightgray;
+  border: 1px solid darkgrey;
+  margin: 8px;
+}
+
+.card-footer {
+  background-color: white;
+  border: none;
+  margin: 0px;
 }

@@ -8,8 +8,9 @@ import { Guard } from "./components/Guard"
 //import { from } from "rxjs";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
+import ListIncidents from "./pages/ListIncidents"
 import ReportIncident from "./pages/ReportIncident";
-// import ListIncidents from "./pages/ListIncidents"
+import EditIncident from "./pages/EditIncident"
 import RegisterUser from "./pages/RegisterUser";
 
 import "./App.css";
@@ -42,8 +43,9 @@ class App extends Component {
             <div id="routes">
               <Route exact path="/" component={Login} />
               <PrivateRoute exact path="/home" component={HomePage} />
+              <PrivateRoute exact path="/incidents" component={ListIncidents} />
               <PrivateRoute exact path="/report-incident" component={ReportIncident} />
-              {/* <PrivateRoute exact path="/incidents" component={ListIncidents} /> */}
+              <Guard exact path="/edit-incident" component={EditIncident} />
               <Guard exact path="/register-user" component={RegisterUser} />
             </div>
           </Router>

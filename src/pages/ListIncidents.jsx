@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import CardIncident from "../components/CardIncident";
-import "../styles/profile.css"
+import "../styles/profile.css";
 
 class ListIncidents extends Component {
   state = {
@@ -10,32 +10,36 @@ class ListIncidents extends Component {
   };
 
   componentDidMount() {
-    var url = `https://ing-web-project.herokuapp.com/get-all-incidents`;
+    var url = `https://ing-web-project.herokuapp.com/incidents`;
     var incidents = [];
     fetch(url)
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
       .then(info => {
         Promise.all(
-          info.response.incidents.map(element =>
-            incidents.push({
-              title: element.data.title,
-              category: element.data.category,
-              description: element.data.description,
-              impact: element.data.impact,
-              createdBy: element.data.createdBy,
-              assigned: element.data.assigned,
-              investigator: element.data.investigator,
-              start_date: element.data.start_date,
-              end_date: element.data.end_date,
-              state: element.data.state
-            })
-          )
+          info.response.incidents.map(element => {
+            if(element !== null){
+              incidents.push({
+                id: element.id,
+                title: element.title,
+                category: element.category,
+                description: element.description,
+                impact: element.impact,
+                createdBy: element.createdBy,
+                assigned: element.assigned,
+                investigator: element.investigator,
+                start_date: element.start_date,
+                end_date: element.end_date,
+                state: element.state
+              });
+            }
+            // console.log(element);
+          })
         ).then(() => {
           this.setState({
-            courses: [].concat(this.state.incidents, incidents)
+            incidents: [].concat(this.state.incidents, incidents)
           });
-          console.log(this.state);
+          console.log("incidentes estado: ", this.state);
         });
       });
   }
@@ -47,7 +51,7 @@ class ListIncidents extends Component {
         <div className="content">
           <div className="row p-4 pt-5 h-100">
             <div className="col">
-              <CardIncident data={this.state.incidents} />
+              <CardIncident className="card" data={this.state.incidents} />
             </div>
           </div>
         </div>

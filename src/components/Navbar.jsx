@@ -68,16 +68,18 @@ class Navbar extends Component {
           <Link id="home" to="/home">
             Inicio
           </Link>
-          <Link id="report-incident" to="/report-incident">
-            Reportar Incidente
-          </Link>
           <Link id="incidents" to="/incidents">
             Listar Incidentes
+          </Link>
+          <Link id="report-incident" to="/report-incident">
+            Reportar Incidente
           </Link>
           <Link hidden={this.isAdmin()} id="register-user" to="/register-user">
             Registrar Usuario
           </Link>
-          <a onClick={this.logout}>Salir</a>
+          <button type="button" className="link-button" onClick={this.logout}>
+            Salir
+          </button>
         </div>
       </div>
     );

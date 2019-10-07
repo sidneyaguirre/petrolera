@@ -7,8 +7,6 @@ class Profile extends Component {
   render() {
     return (
       <div className="profile-card">
-        <div className="card mb-3">
-          <div className="cardheader"></div>
           <div className="card-img-top">
             <img alt="" src={person} className="person-img"></img>
           </div>
@@ -25,7 +23,6 @@ class Profile extends Component {
           </div>
           </div>
         </div>
-      </div>
     );
   }
 }

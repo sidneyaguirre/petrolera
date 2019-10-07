@@ -1,5 +1,6 @@
 .profile-card {
   margin: 50px;
+  /* border: 1px solid lightgrey; */
 }
 
 .person-img {
@@ -51,4 +52,8 @@
     height: 100px;
     width: 100px;
   }
+}
+
+.card {
+  display: inline-flex;
 }

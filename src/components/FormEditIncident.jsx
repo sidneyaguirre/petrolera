@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 // import TimePickers from "./TimePicker";
 
-class FormReportIncident extends Component {
+class FormEditIncident extends Component {
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
         <div>
           <div className="col">
             <h3 className="h3 text-primary">Reportar Incidente</h3>
-            <p className="lead">Reporta un nuevo incidente</p>
+            <p className="lead">
+              Reporta un nuevo incidente
+            </p>
           </div>
         </div>
 
@@ -25,12 +27,11 @@ class FormReportIncident extends Component {
                 name="title"
                 maxLength="35"
                 value={this.props.formValues.title}
+                readOnly
                 required
               />
             </div>
           </div>
-
-          <input hidden type="text" name="createdBy" value={this.props.createdBy} readOnly required></input>
 
           <div className="col">
             <div className="form-group">
@@ -44,6 +45,7 @@ class FormReportIncident extends Component {
                 name="category"
                 maxLength="30"
                 value={this.props.formValues.category}
+                readOnly
                 required
               />
             </div>
@@ -58,6 +60,7 @@ class FormReportIncident extends Component {
             className="form-control"
             name="description"
             value={this.props.formValues.description}
+            readOnly
             required
           />
         </div>
@@ -74,6 +77,7 @@ class FormReportIncident extends Component {
                 className="form-control"
                 name="start_date"
                 value={this.props.formValues.start_date}
+                readOnly
                 required
               />
             </div>
@@ -90,6 +94,7 @@ class FormReportIncident extends Component {
                 className="form-control"
                 name="end_date"
                 value={this.props.formValues.end_date}
+                readOnly
               />
             </div>
           </div>
@@ -106,6 +111,7 @@ class FormReportIncident extends Component {
               className="form-control"
               name="impact"
               value={this.props.formValues.impact}
+              readOnly
               required
             >
               <option value="">Selecione...</option>
@@ -136,40 +142,6 @@ class FormReportIncident extends Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <div className="form-group">
-              <label>
-                <>Asignado a</>
-              </label>
-              <input
-                onChange={this.props.onChange}
-                type="text"
-                className="form-control"
-                name="assigned"
-                maxLength="35"
-                value={this.props.formValues.assigned}
-              />
-            </div>
-          </div>
-
-          <div className="col">
-            <div className="form-group">
-              <label>
-                <>Investigador</>
-              </label>
-              <input
-                onChange={this.props.onChange}
-                type="text"
-                className="form-control"
-                name="investigator"
-                maxLength="30"
-                value={this.props.formValues.investigator}
-              />
-            </div>
-          </div>
-        </div>
-
         <button
           type="submit"
           onClick={console.log("button clicked")}
@@ -182,4 +154,4 @@ class FormReportIncident extends Component {
   }
 }
 
-export default FormReportIncident;
+export default FormEditIncident;
