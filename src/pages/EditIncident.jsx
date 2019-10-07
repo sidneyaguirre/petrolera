@@ -36,7 +36,7 @@ class ReportIncident extends Component {
 
   componentDidMount = () => {
     let user = JSON.parse(localStorage.currentUser).userName;
-    console.log(user);
+    // console.log(user);
     this.setState({
       form: {
         ...this.state.form,
@@ -72,8 +72,11 @@ class ReportIncident extends Component {
       category: info.category,
       impact: info.impact,
       start_date: info.start_date,
-      end_date: "",
-      state: info.state
+      end_date: info.end_date,
+      state: info.state,
+      investigator: info.investigator,
+      assigned: info.assigned,
+      createdBy: info.createdBy
     };
     console.log(data);
     fetch(url, {
@@ -92,14 +95,7 @@ class ReportIncident extends Component {
         window.alert("Resultado: " + JSON.stringify(response.response.msg));
       });
   };
-
-  // showMessage(message) {
-  //   ReactDOM.render(
-  //     <MessageModal message={message} />,
-  //     document.getElementById("modal-message")
-  //   );
-  // }
-
+  
   render() {
     return (
       <div className="page">

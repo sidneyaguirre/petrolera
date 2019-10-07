@@ -13,7 +13,10 @@ class ReportIncident extends Component {
       impact: "",
       start_date: "",
       end_date: "",
-      state: ""
+      state: "",
+      investigator: "",
+      assigned: "",
+      createdBy: ""
     }
   };
 
@@ -25,7 +28,22 @@ class ReportIncident extends Component {
       impact: "",
       start_date: "",
       end_date: "",
-      state: ""
+      state: "",
+      investigator: "",
+      assigned: "",
+      createdBy: ""
+    });
+  };
+
+
+  componentDidMount = () => {
+    let user = JSON.parse(localStorage.currentUser).userName;
+    // console.log(user);
+    this.setState({
+      form: {
+        ...this.state.form,
+        createdBy: user
+      }
     });
   };
 
@@ -51,7 +69,7 @@ class ReportIncident extends Component {
   reportIncident = async info => {
     var url = "https://ing-web-project.herokuapp.com/create-incident";
     var token = JSON.parse(localStorage.currentUser).jwtoken;
-    console.log("my token", token);
+    // console.log("my token", token);
     var data = {
       title: info.title,
       description: info.description,
@@ -59,7 +77,10 @@ class ReportIncident extends Component {
       impact: info.impact,
       start_date: info.start_date,
       end_date: "",
-      state: info.state
+      state: info.state,
+      investigator: "",
+      assigned: "",
+      createdBy: info.createdBy
     };
     console.log(data);
     fetch(url, {
@@ -78,13 +99,6 @@ class ReportIncident extends Component {
         window.alert("Resultado: " + JSON.stringify(response.response.msg));
       });
   };
-
-  // showMessage(message) {
-  //   ReactDOM.render(
-  //     <MessageModal message={message} />,
-  //     document.getElementById("modal-message")
-  //   );
-  // }
 
   render() {
     return (
