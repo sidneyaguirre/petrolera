@@ -1,13 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "../styles/cardincident.css";
 
 class CardIncident extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      course: this.props.data
-    };
+  handleClick = e => {
+    console.log("I will edit this incident");
   }
 
   render() {
@@ -20,27 +18,47 @@ class CardIncident extends Component {
                 <div className="card-body">
                   <h5 className="card-title text-primary">{incident.title}</h5>
                   <div className="is-font-small">
-                   <strong>Estado:</strong> {incident.state}
+                    <strong>Estado:</strong> {incident.state}
                   </div>
                   <div className="is-font-small">
-                   <strong>Fecha:</strong> {incident.start_date} - {incident.end_date}
+                    <strong>Fecha:</strong> {incident.start_date} -{" "}
+                    {incident.end_date}
                   </div>
                   <div className="is-font-small">
-                   <strong>Categoría:</strong> {incident.category}
+                    <strong>Categoría:</strong> {incident.category}
                   </div>
-                  <div className="is-font-small"><strong>Impacto:</strong> {incident.impact}</div>
-                  <div><strong>Descripción:</strong></div>
+                  <div className="is-font-small">
+                    <strong>Impacto:</strong> {incident.impact}
+                  </div>
+                  <div>
+                    <strong>Descripción:</strong>
+                  </div>
                   <div className="card-body card-description">
                     <div className="is-font-small">{incident.description}</div>
                   </div>
                 </div>
                 <div className="card-footer">
-                  <div className="is-font-small"><strong>Creado por:</strong> {incident.createdBy}</div>
-                  <div className="is-font-small"><strong>Asignado a:</strong> {incident.assigned}</div>
-                  <div className="is-font-small"><strong>Investigador:</strong> {incident.investigator}</div>
+                  <div className="is-font-small">
+                    <strong>Creado por:</strong> {incident.createdBy}
+                  </div>
+                  <div className="is-font-small">
+                    <strong>Asignado a:</strong> {incident.assigned}
+                  </div>
+                  <div className="is-font-small">
+                    <strong>Investigador:</strong> {incident.investigator}
+                  </div>
                 </div>
                 <div>
-                <a href="/edit-incident" class="btn btn-primary stretched-link">Editar</a>
+                  <Link
+                  onClick={this.handleClick}
+                    to={{
+                      pathname: "/edit-incident",
+                      incidentInfo: { incident }
+                    }}
+                    className="btn btn-primary stretched-link"
+                  >
+                    Editar
+                  </Link>
                 </div>
               </div>
             </li>

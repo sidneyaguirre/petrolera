@@ -5,44 +5,28 @@ import FormEditIncident from "../components/FormEditIncident";
 
 class ReportIncident extends Component {
   state = {
-    form: {
-      title: "",
-      description: "",
-      category: "",
-      impact: "",
-      start_date: "",
-      end_date: "",
-      state: "",
-      investigator: "",
-      assigned: "",
-      createdBy: ""
-    }
+    incident: {}
   };
 
-  clearForm = () => {
-    this.setState({
-      title: "",
-      description: "",
-      category: "",
-      impact: "",
-      start_date: "",
-      end_date: "",
-      state: "",
-      investigator: "",
-      assigned: "",
-      createdBy: ""
-    });
-  };
+  // clearForm = () => {
+  //   this.setState({
+  //     title: "",
+  //     description: "",
+  //     category: "",
+  //     impact: "",
+  //     start_date: "",
+  //     end_date: "",
+  //     state: "",
+  //     investigator: "",
+  //     assigned: "",
+  //     createdBy: ""
+  //   });
+  // };
 
   componentDidMount = () => {
-    let user = JSON.parse(localStorage.currentUser).userName;
-    // console.log(user);
-    this.setState({
-      form: {
-        ...this.state.form,
-        createdBy: user
-      }
-    });
+    const { incident } = this.props.location.incidentInfo;
+    console.log("incident", incident);
+    this.setState({ incident: incident }, () => console.log("page edit state", this.state.incident));
   };
 
   handleChange = e => {
@@ -52,35 +36,32 @@ class ReportIncident extends Component {
         [e.target.name]: e.target.value
       }
     });
+    // console.log("this is changing");
   };
 
   handleSubmit = async e => {
     e.preventDefault();
     console.log("Form submitted");
-    this.editIncident(this.state.form).then(() => {
-      this.clearForm();
-    });
+    this.editIncident(this.state.form);
+    // .then(() => {
+    //   this.clearForm();
+    // });
   };
 
   editIncident = async info => {
-    var url = "https://ing-web-project.herokuapp.com/create-incident";
+    var url = "https://ing-web-project.herokuapp.com/incident";
     var token = JSON.parse(localStorage.currentUser).jwtoken;
-    console.log("my token", token);
+    // console.log("my token", token);
     var data = {
-      title: info.title,
-      description: info.description,
-      category: info.category,
-      impact: info.impact,
-      start_date: info.start_date,
+      id: info.id,
       end_date: info.end_date,
       state: info.state,
       investigator: info.investigator,
-      assigned: info.assigned,
-      createdBy: info.createdBy
+      assigned: info.assigned
     };
     console.log(data);
     fetch(url, {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +76,7 @@ class ReportIncident extends Component {
         window.alert("Resultado: " + JSON.stringify(response.response.msg));
       });
   };
-  
+
   render() {
     return (
       <div className="page">
@@ -106,7 +87,7 @@ class ReportIncident extends Component {
               <FormEditIncident
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
-                formValues={this.state.form}
+                formValues={this.state.incident}
                 className="col"
               />
               <div id="modal-message"></div>

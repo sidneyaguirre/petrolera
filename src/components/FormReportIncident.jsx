@@ -136,40 +136,6 @@ class FormReportIncident extends Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <div className="form-group">
-              <label>
-                <>Asignado a</>
-              </label>
-              <input
-                onChange={this.props.onChange}
-                type="text"
-                className="form-control"
-                name="assigned"
-                maxLength="35"
-                value={this.props.formValues.assigned}
-              />
-            </div>
-          </div>
-
-          <div className="col">
-            <div className="form-group">
-              <label>
-                <>Investigador</>
-              </label>
-              <input
-                onChange={this.props.onChange}
-                type="text"
-                className="form-control"
-                name="investigator"
-                maxLength="30"
-                value={this.props.formValues.investigator}
-              />
-            </div>
-          </div>
-        </div>
-
         <button
           type="submit"
           onClick={console.log("button clicked")}

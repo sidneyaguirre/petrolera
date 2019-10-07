@@ -39,7 +39,7 @@ class ListIncidents extends Component {
           this.setState({
             incidents: [].concat(this.state.incidents, incidents)
           });
-          console.log("incidentes estado: ", this.state);
+          // console.log("incidentes estado: ", this.state);
         });
       });
   }

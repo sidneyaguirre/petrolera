@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-// import TimePickers from "./TimePicker";
 
 class FormEditIncident extends Component {
+  
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
         <div>
           <div className="col">
             <h3 className="h3 text-primary">Reportar Incidente</h3>
-            <p className="lead">
-              Reporta un nuevo incidente
-            </p>
+            <p className="lead">Editar información del incidente</p>
           </div>
         </div>
 
@@ -21,7 +19,7 @@ class FormEditIncident extends Component {
                 <>Nombre del Incidente</>
               </label>
               <input
-                onChange={this.props.onChange}
+                // onChange={this.props.onChange}
                 type="text"
                 className="form-control"
                 name="title"
@@ -39,7 +37,7 @@ class FormEditIncident extends Component {
                 <>Categoría</>
               </label>
               <input
-                onChange={this.props.onChange}
+                // onChange={this.props.onChange}
                 type="text"
                 className="form-control"
                 name="category"
@@ -72,7 +70,7 @@ class FormEditIncident extends Component {
                 <>Fecha y Hora de Apertura</>
               </label>
               <input
-                onChange={this.props.onChange}
+                // onChange={this.props.onChange}
                 type="datetime-local"
                 className="form-control"
                 name="start_date"
@@ -94,7 +92,6 @@ class FormEditIncident extends Component {
                 className="form-control"
                 name="end_date"
                 value={this.props.formValues.end_date}
-                readOnly
               />
             </div>
           </div>
@@ -106,7 +103,7 @@ class FormEditIncident extends Component {
               <>Impacto</>
             </label>
             <select
-              onChange={this.props.onChange}
+              // onChange={this.props.onChange}
               type="text"
               className="form-control"
               name="impact"
@@ -142,12 +139,46 @@ class FormEditIncident extends Component {
           </div>
         </div>
 
+        <div className="row">
+          <div className="col">
+            <div className="form-group">
+              <label>
+                <>Responsable</>
+              </label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                className="form-control"
+                name="assigned"
+                maxLength="35"
+                value={this.props.formValues.assigned}
+              />
+            </div>
+          </div>
+
+          <div className="col">
+            <div className="form-group">
+              <label>
+                <>Investigador</>
+              </label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                className="form-control"
+                name="investigator"
+                maxLength="30"
+                value={this.props.formValues.investigator}
+              />
+            </div>
+          </div>
+        </div>
+
         <button
           type="submit"
           onClick={console.log("button clicked")}
           className="btn btn-outline-primary float-right"
         >
-          Guardar Reporte
+          Guardar Cambios
         </button>
       </form>
     );

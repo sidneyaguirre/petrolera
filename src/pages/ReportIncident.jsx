@@ -67,7 +67,7 @@ class ReportIncident extends Component {
   };
 
   reportIncident = async info => {
-    var url = "https://ing-web-project.herokuapp.com/create-incident";
+    var url = "https://ing-web-project.herokuapp.com/incident";
     var token = JSON.parse(localStorage.currentUser).jwtoken;
     // console.log("my token", token);
     var data = {

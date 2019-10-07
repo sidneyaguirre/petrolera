@@ -67,7 +67,7 @@ class RegisterUser extends Component {
   };
 
   createUser = async info => {
-    var url = "https://ing-web-project.herokuapp.com/register-user";
+    var url = "https://ing-web-project.herokuapp.com/user";
     var equalPasswords = this.handlePasswords(info.password1, info.password2);
     var token = JSON.parse(localStorage.currentUser).jwtoken;
     var data = {
