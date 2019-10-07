@@ -25,8 +25,8 @@ class ReportIncident extends Component {
 
   componentDidMount = () => {
     const { incident } = this.props.location.incidentInfo;
-    console.log("incident", incident);
-    this.setState({ incident: incident }, () => console.log("page-edit state", this.state.incident));
+    // console.log("incident", incident);
+    this.setState({ incident: incident }/* , () => console.log("page-edit state", this.state.incident) */);
   };
 
   handleChange = e => {
