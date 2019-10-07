@@ -103,7 +103,7 @@ class FormEditIncident extends Component {
               <>Impacto</>
             </label>
             <select
-              // onChange={this.props.onChange}
+              onChange={this.props.onChange}
               type="text"
               className="form-control"
               name="impact"

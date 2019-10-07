@@ -26,13 +26,13 @@ class ReportIncident extends Component {
   componentDidMount = () => {
     const { incident } = this.props.location.incidentInfo;
     console.log("incident", incident);
-    this.setState({ incident: incident }, () => console.log("page edit state", this.state.incident));
+    this.setState({ incident: incident }, () => console.log("page-edit state", this.state.incident));
   };
 
   handleChange = e => {
     this.setState({
-      form: {
-        ...this.state.form,
+      incident: {
+        ...this.state.incident,
         [e.target.name]: e.target.value
       }
     });
@@ -88,6 +88,7 @@ class ReportIncident extends Component {
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
                 formValues={this.state.incident}
+                // editionValues={this.state.form}
                 className="col"
               />
               <div id="modal-message"></div>
