@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import Navbar from "../components/Navbar";
 import FormRegisterUser from "../components/FormRegisterUser";
 // import MessageModal from "../components/MessageModal";
+import { jwtencode, jwtdecode } from './../_helpers/jwt'
+
 
 class RegisterUser extends Component {
   state = {
@@ -18,6 +20,10 @@ class RegisterUser extends Component {
       password2: ""
     }
   };
+
+  componentDidMount(){
+
+  }
 
   clearForm = () => {
     this.setState({
@@ -69,7 +75,9 @@ class RegisterUser extends Component {
   createUser = async info => {
     var url = "https://ing-web-project.herokuapp.com/user";
     var equalPasswords = this.handlePasswords(info.password1, info.password2);
-    var token = JSON.parse(localStorage.currentUser).jwtoken;
+    var decode = jwtdecode (localStorage.currentUser)
+    var token = decode.user.jwtoken
+    
     var data = {
       userName: info.userName,
       email: info.email,

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import FormReportIncident from "../components/FormReportIncident";
+import { jwtencode, jwtdecode } from './../_helpers/jwt'
 
 class ReportIncident extends Component {
   state = {
@@ -36,7 +37,10 @@ class ReportIncident extends Component {
 
 
   componentDidMount = () => {
-    let user = JSON.parse(localStorage.currentUser).userName;
+    // let user = JSON.parse(localStorage.currentUser).userName;
+    var decode = jwtdecode (localStorage.currentUser)
+    var user = decode.user.userName
+
     this.setState({
       form: {
         ...this.state.form,
@@ -64,7 +68,8 @@ class ReportIncident extends Component {
 
   reportIncident = async info => {
     var url = "https://ing-web-project.herokuapp.com/incident";
-    var token = JSON.parse(localStorage.currentUser).jwtoken;
+    var decode = jwtdecode (localStorage.currentUser)
+    var token = decode.user.jwtoken
     var data = {
       title: info.title,
       description: info.description,

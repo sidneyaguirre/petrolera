@@ -1,6 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
 import { handleResponse } from '../_helpers/handle-response';
 import '../_config/config';
+import { jwtencode, jwtdecode } from './../_helpers/jwt'
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 
@@ -8,7 +9,10 @@ export const authenticationService = {
     login,
     logout,
     currentUser: currentUserSubject.asObservable(),
-    get currentUserValue () { return currentUserSubject.value }
+    get currentUserValue () { 
+        console.log(currentUserSubject.value);
+        
+        return (currentUserSubject.value) }
 };
 
 function login(userName, password) {
@@ -23,7 +27,9 @@ function login(userName, password) {
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            let encode = jwtencode(user)
+            console.log(encode);
+            localStorage.setItem('currentUser', JSON.stringify(encode));
             currentUserSubject.next(user);
 
             return user;

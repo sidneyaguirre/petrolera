@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import FormEditIncident from "../components/FormEditIncident";
+import { jwtencode, jwtdecode } from './../_helpers/jwt'
 
 class ReportIncident extends Component {
   state = {
@@ -48,7 +49,9 @@ class ReportIncident extends Component {
 
   editIncident = async info => {
     var url = "https://ing-web-project.herokuapp.com/incident";
-    var token = JSON.parse(localStorage.currentUser).jwtoken;
+    var decode = jwtdecode (localStorage.currentUser)
+    // var token = JSON.parse(localStorage.currentUser).jwtoken;
+    var token = decode.user.token
     var data = {
       id: info.id,
       end_date: info.end_date,

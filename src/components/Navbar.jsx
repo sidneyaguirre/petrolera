@@ -6,6 +6,8 @@ import { authenticationService } from "../_services/authentication.service";
 
 import logo from "../assets/PetroleraCorpleaf.png";
 import "../styles/navbar.css";
+import { jwtencode, jwtdecode } from './../_helpers/jwt'
+
 
 class Navbar extends Component {
   constructor(props) {
@@ -29,8 +31,10 @@ class Navbar extends Component {
   }
 
   isAdmin() {
-    var userAdmin = JSON.parse(localStorage.currentUser).role;
-    if (userAdmin === "admin") {
+    var current = jwtdecode(localStorage.currentUser)
+    
+    // var userAdmin = JSON.parse(localStorage.currentUser).role;
+    if (current.user.role === "admin") {
       return false;
     }
     return true;
