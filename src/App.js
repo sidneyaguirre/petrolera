@@ -5,6 +5,7 @@ import { history } from "./_helpers/history";
 import { authenticationService } from "./_services/authentication.service";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Guard } from "./components/Guard"
+import { GuardIncidents } from "./components/GuardIncidents"
 //import { from } from "rxjs";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
@@ -30,9 +31,7 @@ class App extends Component {
   }
 
   logout() {
-    authenticationService.logout();
-    console.log(history);
-    
+    authenticationService.logout();    
     history.push("/");
   }
 
@@ -45,7 +44,7 @@ class App extends Component {
             <div id="routes">
               <Route exact path="/" component={Login} />
               <PrivateRoute exact path="/home" component={HomePage} />
-              <PrivateRoute exact path="/incidents" component={ListIncidents} />
+              <GuardIncidents exact path="/incidents" component={ListIncidents} />
               <PrivateRoute exact path="/report-incident" component={ReportIncident} />
               <Guard path="/edit-incident" component={EditIncident} />
               <Guard exact path="/register-user" component={RegisterUser} />

@@ -90,7 +90,6 @@ class RegisterUser extends Component {
     } else {
       this.unequalPasswordsAlert();
     }
-    console.log(data);
     fetch(url, {
       method: "POST",
       body: JSON.stringify(data),

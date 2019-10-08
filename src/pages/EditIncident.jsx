@@ -41,13 +41,14 @@ class ReportIncident extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     console.log("Form submitted");
-    this.editIncident(this.state.form);
+    console.log(this.state.form);
+    this.editIncident(this.state.incident);
     // .then(() => {
     //   this.clearForm();
     // });
   };
 
-  editIncident = async info => {
+  editIncident = async info => {    
     var url = "https://ing-web-project.herokuapp.com/incident";
     var decode = jwtdecode (localStorage.currentUser)
     // var token = JSON.parse(localStorage.currentUser).jwtoken;
@@ -59,7 +60,6 @@ class ReportIncident extends Component {
       investigator: info.investigator,
       assigned: info.assigned
     };
-    console.log(data);
     fetch(url, {
       method: "PUT",
       body: JSON.stringify(data),

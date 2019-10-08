@@ -11,7 +11,7 @@ export const Guard = ({ component: Component, ...rest }) => (
             return <Redirect to={{ pathname: '/', state: { from: props.location } }} />
         }
         else {
-            // Admin action forbbiden by an user
+            // Admin action forbbiden by an user            
             if (!(currentUser.role === "admin")) {
                 return <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
             }

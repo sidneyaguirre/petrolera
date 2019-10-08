@@ -9,9 +9,7 @@ export const authenticationService = {
     login,
     logout,
     currentUser: currentUserSubject.asObservable(),
-    get currentUserValue () { 
-        console.log(currentUserSubject.value);
-        
+    get currentUserValue () {         
         return (currentUserSubject.value) }
 };
 
@@ -28,7 +26,6 @@ function login(userName, password) {
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             let encode = jwtencode(user)
-            console.log(encode);
             localStorage.setItem('currentUser', JSON.stringify(encode));
             currentUserSubject.next(user);
 

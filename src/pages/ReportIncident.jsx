@@ -82,7 +82,6 @@ class ReportIncident extends Component {
       assigned: "",
       createdBy: info.createdBy
     };
-    console.log(data);
     fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
