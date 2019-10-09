@@ -137,7 +137,6 @@ class FormReportIncident extends Component {
 
         <button
           type="submit"
-          // onClick={console.log("button clicked")}
           className="btn btn-outline-primary float-right"
         >
           Guardar Reporte

@@ -31,8 +31,6 @@ class Navbar extends Component {
 
   isAdmin() {
     var current = jwtdecode(localStorage.currentUser);
-
-    // var userAdmin = JSON.parse(localStorage.currentUser).role;
     if (current.user.role === "admin") {
       return false;
     }
@@ -68,7 +66,7 @@ class Navbar extends Component {
         document.getElementById("register-user").style.background = color;
         break;
       default:
-        console.log();
+        console.log("Esta ruta no existe");
         break;
     }
   }

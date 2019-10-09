@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import SelectDelegate from "./SelectDelegate";
+import { jwtdecode } from "./../_helpers/jwt";
 
 class FormEditIncident extends Component {
-  
+  handleEdition = () => {
+    var current = jwtdecode(localStorage.currentUser);
+    if (current.user.role === "supervisor") {
+      return true;
+    }
+    return false;
+  };
+
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
@@ -136,10 +144,10 @@ class FormEditIncident extends Component {
           </div>
         </div>
 
-        <div className="form-row">
-          <div className="col">
+        <div className="row">
+          <div className="col" hidden={this.handleEdition()}>
             <div className="form-group">
-              <label>
+              <label className="mr-sm-2">
                 <>Responsable</>
               </label>
               <SelectDelegate
@@ -153,7 +161,7 @@ class FormEditIncident extends Component {
 
           <div className="col">
             <div className="form-group">
-              <label>
+              <label className="mr-sm-2">
                 <>Investigador</>
               </label>
               <SelectDelegate
@@ -166,10 +174,7 @@ class FormEditIncident extends Component {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-outline-primary float-right"
-        >
+        <button type="submit" className="btn btn-outline-primary float-right">
           Guardar Cambios
         </button>
       </form>

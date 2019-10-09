@@ -6,7 +6,6 @@ import { authenticationService } from "./_services/authentication.service";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Guard } from "./components/Guard"
 import { GuardIncidents } from "./components/GuardIncidents"
-//import { from } from "rxjs";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
 import ListIncidents from "./pages/ListIncidents"

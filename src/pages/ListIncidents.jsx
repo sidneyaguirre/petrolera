@@ -41,7 +41,6 @@ class ListIncidents extends Component {
           this.setState({
             incidents: [].concat(this.state.incidents, incidents)
           });
-          // console.log("incidentes estado: ", this.state);
         });
       });
   }
@@ -76,7 +75,6 @@ class ListIncidents extends Component {
           this.setState({
             incidents: [].concat(this.state.incidents, incidents)
           });
-          // console.log("incidentes estado: ", this.state);
         });
       });
   }
@@ -116,7 +114,7 @@ class ListIncidents extends Component {
       <div className="page">
         <Navbar className="navbar" />
         <div className="content">
-          <div className="row p-4 pt-5 h-100">
+          <div className="list">
             <div className="col">
               <CardIncident className="card" data={this.state.incidents} />
             </div>

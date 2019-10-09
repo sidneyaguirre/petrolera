@@ -11,21 +11,6 @@ class ReportIncident extends Component {
     supervisors: []
   };
 
-  // clearForm = () => {
-  //   this.setState({
-  //     title: "",
-  //     description: "",
-  //     category: "",
-  //     impact: "",
-  //     start_date: "",
-  //     end_date: "",
-  //     state: "",
-  //     investigator: "",
-  //     assigned: "",
-  //     createdBy: ""
-  //   });
-  // };
-
   componentDidMount = () => {
     const { incident } = this.props.location.incidentInfo;
     this.setState({ incident: incident });
@@ -45,11 +30,7 @@ class ReportIncident extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     console.log("Form submitted");
-    console.log(this.state.form);
     this.editIncident(this.state.incident);
-    // .then(() => {
-    //   this.clearForm();
-    // });
   };
 
   editIncident = async info => {
@@ -81,8 +62,6 @@ class ReportIncident extends Component {
 
   getInvestigators() {
     var url = "https://ing-web-project.herokuapp.com/investigators";
-    // var decode = jwtdecode (localStorage.currentUser);
-    // var token = decode.user.token;
     var investigators = [];
     fetch(url)
       .then(res => res.json())
@@ -99,15 +78,12 @@ class ReportIncident extends Component {
           this.setState({
             investigators: [].concat(this.state.investigators, investigators)
           });
-          // console.log(this.state);
         });
       });
   }
 
   getSupervisors() {
     var url = "https://ing-web-project.herokuapp.com/supervisors";
-    // var decode = jwtdecode (localStorage.currentUser);
-    // var token = decode.user.token;
     var supervisors = [];
     fetch(url)
       .then(res => res.json())
@@ -124,7 +100,6 @@ class ReportIncident extends Component {
           this.setState({
             supervisors: [].concat(this.state.supervisors, supervisors)
           });
-          // console.log(this.state);
         });
       });
   }

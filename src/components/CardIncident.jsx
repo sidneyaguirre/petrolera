@@ -7,18 +7,15 @@ import "../styles/cardincident.css";
 class CardIncident extends Component {
   handleClick = e => {
     console.log("I will edit this incident");
-  }
+  };
 
   handleEdition = () => {
     var current = jwtdecode(localStorage.currentUser);
-    if (
-      current.user.role === "admin" ||
-      current.user.role === "supervisor"
-    ) {
+    if (current.user.role === "admin" || current.user.role === "supervisor") {
       return false;
     }
     return true;
-  }
+  };
 
   render() {
     return (
@@ -27,8 +24,10 @@ class CardIncident extends Component {
           return (
             <li key={incident.id} className="incident-element-list">
               <div className="card rounded-lg is-box">
-                <div className="card-body">
+                <div className="card-header">
                   <h5 className="card-title text-primary">{incident.title}</h5>
+                </div>
+                <div className="card-body">
                   <div className="is-font-small">
                     <strong>Estado:</strong> {incident.state}
                   </div>
@@ -62,7 +61,7 @@ class CardIncident extends Component {
                 </div>
                 <div>
                   <Link
-                  onClick={this.handleClick}
+                    onClick={this.handleClick}
                     to={{
                       pathname: "/edit-incident",
                       incidentInfo: { incident }

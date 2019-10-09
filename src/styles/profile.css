@@ -57,3 +57,7 @@
 .card {
   display: inline-flex;
 }
+
+.list {
+  padding: 40px;
+}
