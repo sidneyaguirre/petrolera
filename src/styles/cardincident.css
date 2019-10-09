@@ -6,10 +6,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .card {
-  width: 18rem;
+  width: 40rem;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 #00000033;
   transition: 0.3s;
+  padding: 0%;
 }
 
 .card:hover {
@@ -21,14 +22,18 @@ input[type=number]::-webkit-outer-spin-button {
   padding-left: 0%;
 }
 
+.incident-element-list {
+  margin-bottom: 20px;
+}
+
 .card-title {
   color: #198bd8;
   font-weight: bolder;
 }
 
 .card-description {
-  background-color: lightgray;
-  border: 1px solid darkgrey;
+  background-color: rgb(236, 234, 234);
+  border: 1px solid rgb(226, 226, 226);
   margin: 8px;
 }
 
@@ -43,4 +48,11 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 20px;
     width: 15rem;
   }
+}
+
+tr {
+  line-height: 5px;
+  min-height: 5px;
+  height: 5px;
+  /* border: 1px solid #00000033; */
 }
