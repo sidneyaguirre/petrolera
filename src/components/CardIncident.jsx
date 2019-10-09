@@ -1,11 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { jwtdecode } from "./../_helpers/jwt";
 
 import "../styles/cardincident.css";
 
 class CardIncident extends Component {
   handleClick = e => {
     console.log("I will edit this incident");
+  }
+
+  handleEdition = () => {
+    var current = jwtdecode(localStorage.currentUser);
+    if (
+      current.user.role === "admin" ||
+      current.user.role === "supervisor"
+    ) {
+      return false;
+    }
+    return true;
   }
 
   render() {
@@ -56,6 +68,7 @@ class CardIncident extends Component {
                       incidentInfo: { incident }
                     }}
                     className="btn btn-primary stretched-link"
+                    hidden={this.handleEdition()}
                   >
                     Editar
                   </Link>

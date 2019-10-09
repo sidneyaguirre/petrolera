@@ -9,7 +9,7 @@ import "../styles/profile.css";
 class ListIncidents extends Component {
   state = {
     incidents: [],
-    
+
   };
 
   getIncidentsForAdmin() {
@@ -48,7 +48,7 @@ class ListIncidents extends Component {
 
   /* get incidents for investigators and supervisors*/
   getIncidentsSI() {
-    var url = `PONER URL`;
+    var url = `https://ing-web-project.herokuapp.com/incidents`;
     var incidents = [];
     fetch(url)
       .then(res => res.json())

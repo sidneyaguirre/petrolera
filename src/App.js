@@ -46,7 +46,7 @@ class App extends Component {
               <PrivateRoute exact path="/home" component={HomePage} />
               <GuardIncidents exact path="/incidents" component={ListIncidents} />
               <PrivateRoute exact path="/report-incident" component={ReportIncident} />
-              <Guard path="/edit-incident" component={EditIncident} />
+              <GuardIncidents path="/edit-incident" component={EditIncident} />
               <Guard exact path="/register-user" component={RegisterUser} />
             </div>
           </Router>
