@@ -135,7 +135,7 @@ class FormEditIncident extends Component {
           </div>
         </div>
 
-        <div className="row">
+        <div className="form-row">
           <div className="col">
             <div className="form-group">
               <label>

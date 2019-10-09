@@ -95,7 +95,7 @@ class Navbar extends Component {
             Registrar Usuario
           </Link>
           <button type="button" className="link-button" onClick={this.logout}>
-            Salir
+            Cerrar Sesión
           </button>
         </div>
       </div>
