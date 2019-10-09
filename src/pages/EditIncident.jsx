@@ -2,11 +2,13 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import FormEditIncident from "../components/FormEditIncident";
-import { jwtencode, jwtdecode } from './../_helpers/jwt'
+import { jwtdecode } from "./../_helpers/jwt";
 
 class ReportIncident extends Component {
   state = {
-    incident: {}
+    incident: {},
+    investigators: [],
+    supervisors: []
   };
 
   // clearForm = () => {
@@ -26,7 +28,9 @@ class ReportIncident extends Component {
 
   componentDidMount = () => {
     const { incident } = this.props.location.incidentInfo;
-    this.setState({ incident: incident }/* , () => console.log("page-edit state", this.state.incident) */);
+    this.setState({ incident: incident });
+    this.getSupervisors();
+    this.getInvestigators();
   };
 
   handleChange = e => {
@@ -48,11 +52,10 @@ class ReportIncident extends Component {
     // });
   };
 
-  editIncident = async info => {    
+  editIncident = async info => {
     var url = "https://ing-web-project.herokuapp.com/incident";
-    var decode = jwtdecode (localStorage.currentUser)
-    // var token = JSON.parse(localStorage.currentUser).jwtoken;
-    var token = decode.user.token
+    var decode = jwtdecode(localStorage.currentUser);
+    var token = decode.user.token;
     var data = {
       id: info.id,
       end_date: info.end_date,
@@ -76,6 +79,56 @@ class ReportIncident extends Component {
       });
   };
 
+  getInvestigators() {
+    var url = "https://ing-web-project.herokuapp.com/investigators";
+    // var decode = jwtdecode (localStorage.currentUser);
+    // var token = decode.user.token;
+    var investigators = [];
+    fetch(url)
+      .then(res => res.json())
+      .catch(error => console.error("Error:", error))
+      .then(info => {
+        Promise.all(
+          info.response.invesigators.map(element =>
+            investigators.push({
+              email: element.email,
+              name: element.name
+            })
+          )
+        ).then(() => {
+          this.setState({
+            investigators: [].concat(this.state.investigators, investigators)
+          });
+          // console.log(this.state);
+        });
+      });
+  }
+
+  getSupervisors() {
+    var url = "https://ing-web-project.herokuapp.com/supervisors";
+    // var decode = jwtdecode (localStorage.currentUser);
+    // var token = decode.user.token;
+    var supervisors = [];
+    fetch(url)
+      .then(res => res.json())
+      .catch(error => console.error("Error:", error))
+      .then(info => {
+        Promise.all(
+          info.response.supervisors.map(element =>
+            supervisors.push({
+              email: element.email,
+              name: element.name
+            })
+          )
+        ).then(() => {
+          this.setState({
+            supervisors: [].concat(this.state.supervisors, supervisors)
+          });
+          // console.log(this.state);
+        });
+      });
+  }
+
   render() {
     return (
       <div className="page">
@@ -86,7 +139,7 @@ class ReportIncident extends Component {
               <FormEditIncident
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
-                formValues={this.state.incident}
+                formValues={this.state}
                 className="col"
               />
               <div id="modal-message"></div>

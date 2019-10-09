@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import FormReportIncident from "../components/FormReportIncident";
-import { jwtencode, jwtdecode } from './../_helpers/jwt'
+import { jwtdecode } from './../_helpers/jwt'
 
 class ReportIncident extends Component {
   state = {

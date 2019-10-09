@@ -6,7 +6,7 @@ import { authenticationService } from "../_services/authentication.service";
 
 import logo from "../assets/PetroleraCorpleaf.png";
 import "../styles/navbar.css";
-import { jwtencode, jwtdecode } from "./../_helpers/jwt";
+import { jwtdecode } from "./../_helpers/jwt";
 
 class Navbar extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class Navbar extends Component {
     return true;
   }
 
-  isAllow() {
+  isAllowed() {
     var current = jwtdecode(localStorage.currentUser);
 
     // var userAdmin = JSON.parse(localStorage.currentUser).role;
@@ -85,7 +85,7 @@ class Navbar extends Component {
           <Link id="home" to="/home">
             Inicio
           </Link>
-          <Link hidden={this.isAllow()} id="incidents" to="/incidents">
+          <Link hidden={this.isAllowed()} id="incidents" to="/incidents">
             Listar Incidentes
           </Link>
           <Link id="report-incident" to="/report-incident">

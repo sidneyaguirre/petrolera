@@ -2,14 +2,17 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar";
 import CardIncident from "../components/CardIncident";
+import { jwtdecode } from "./../_helpers/jwt";
+
 import "../styles/profile.css";
 
 class ListIncidents extends Component {
   state = {
-    incidents: []
+    incidents: [],
+    
   };
 
-  componentDidMount() {
+  getIncidentsForAdmin() {
     var url = `https://ing-web-project.herokuapp.com/incidents`;
     var incidents = [];
     fetch(url)
@@ -18,7 +21,7 @@ class ListIncidents extends Component {
       .then(info => {
         Promise.all(
           info.response.incidents.map(element => {
-            if(element !== null){
+            if (element !== null) {
               incidents.push({
                 id: element.id,
                 title: element.title,
@@ -41,6 +44,71 @@ class ListIncidents extends Component {
           // console.log("incidentes estado: ", this.state);
         });
       });
+  }
+
+  /* get incidents for investigators and supervisors*/
+  getIncidentsSI() {
+    var url = `PONER URL`;
+    var incidents = [];
+    fetch(url)
+      .then(res => res.json())
+      .catch(error => console.error("Error:", error))
+      .then(info => {
+        Promise.all(
+          info.response.incidents.map(element => {
+            if (element !== null) {
+              incidents.push({
+                id: element.id,
+                title: element.title,
+                category: element.category,
+                description: element.description,
+                impact: element.impact,
+                createdBy: element.createdBy,
+                assigned: element.assigned,
+                investigator: element.investigator,
+                start_date: element.start_date,
+                end_date: element.end_date,
+                state: element.state
+              });
+            }
+          })
+        ).then(() => {
+          this.setState({
+            incidents: [].concat(this.state.incidents, incidents)
+          });
+          // console.log("incidentes estado: ", this.state);
+        });
+      });
+  }
+
+  isAdmin() {
+    var current = jwtdecode(localStorage.currentUser);
+    if (current.user.role === "admin") {
+      return true;
+    }
+    return false;
+  }
+
+  isAllowed() {
+    var current = jwtdecode(localStorage.currentUser);
+    if (
+      current.user.role === "supervisor" ||
+      current.user.role === "investigator"
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  componentDidMount() {
+    if (this.isAdmin()) {
+      this.getIncidentsForAdmin();
+    } else if(this.isAllowed){
+      this.getIncidentsSI();
+    } else {
+      console.log("This is someone else");
+      return (<div><h2>Función No permitida</h2></div>)
+    }
   }
 
   render() {

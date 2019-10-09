@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
 import { handleResponse } from '../_helpers/handle-response';
 import '../_config/config';
-import { jwtencode, jwtdecode } from './../_helpers/jwt'
+import { jwtencode } from './../_helpers/jwt'
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 

@@ -42,7 +42,7 @@ class CardIncident extends Component {
                     <strong>Creado por:</strong> {incident.createdBy}
                   </div>
                   <div className="is-font-small">
-                    <strong>Asignado a:</strong> {incident.assigned}
+                    <strong>Responsable:</strong> {incident.assigned}
                   </div>
                   <div className="is-font-small">
                     <strong>Investigador:</strong> {incident.investigator}

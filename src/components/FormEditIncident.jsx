@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SelectDelegate from "./SelectDelegate";
 
 class FormEditIncident extends Component {
   
@@ -23,7 +24,7 @@ class FormEditIncident extends Component {
                 className="form-control"
                 name="title"
                 maxLength="35"
-                value={this.props.formValues.title}
+                value={this.props.formValues.incident.title}
                 readOnly
                 required
               />
@@ -40,7 +41,7 @@ class FormEditIncident extends Component {
                 className="form-control"
                 name="category"
                 maxLength="30"
-                value={this.props.formValues.category}
+                value={this.props.formValues.incident.category}
                 readOnly
                 required
               />
@@ -55,7 +56,7 @@ class FormEditIncident extends Component {
             type="text"
             className="form-control"
             name="description"
-            value={this.props.formValues.description}
+            value={this.props.formValues.incident.description}
             readOnly
             required
           />
@@ -71,7 +72,7 @@ class FormEditIncident extends Component {
                 type="datetime-local"
                 className="form-control"
                 name="start_date"
-                value={this.props.formValues.start_date}
+                value={this.props.formValues.incident.start_date}
                 readOnly
                 required
               />
@@ -88,7 +89,7 @@ class FormEditIncident extends Component {
                 type="datetime-local"
                 className="form-control"
                 name="end_date"
-                value={this.props.formValues.end_date}
+                value={this.props.formValues.incident.end_date}
               />
             </div>
           </div>
@@ -104,7 +105,7 @@ class FormEditIncident extends Component {
               type="text"
               className="form-control"
               name="impact"
-              value={this.props.formValues.impact}
+              value={this.props.formValues.incident.impact}
               required
             >
               <option value="">Selecione...</option>
@@ -123,7 +124,7 @@ class FormEditIncident extends Component {
               type="text"
               className="form-control"
               name="state"
-              value={this.props.formValues.state}
+              value={this.props.formValues.incident.state}
               required
             >
               <option value="">Selecione...</option>
@@ -141,13 +142,11 @@ class FormEditIncident extends Component {
               <label>
                 <>Responsable</>
               </label>
-              <input
+              <SelectDelegate
                 onChange={this.props.onChange}
-                type="text"
                 className="form-control"
                 name="assigned"
-                maxLength="35"
-                value={this.props.formValues.assigned}
+                delegate={this.props.formValues.supervisors}
               />
             </div>
           </div>
@@ -157,13 +156,11 @@ class FormEditIncident extends Component {
               <label>
                 <>Investigador</>
               </label>
-              <input
+              <SelectDelegate
                 onChange={this.props.onChange}
-                type="text"
                 className="form-control"
                 name="investigator"
-                maxLength="30"
-                value={this.props.formValues.investigator}
+                delegate={this.props.formValues.investigators}
               />
             </div>
           </div>

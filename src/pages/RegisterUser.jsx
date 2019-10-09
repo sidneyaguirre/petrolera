@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 
 import Navbar from "../components/Navbar";
 import FormRegisterUser from "../components/FormRegisterUser";
-// import MessageModal from "../components/MessageModal";
-import { jwtencode, jwtdecode } from './../_helpers/jwt'
+import { jwtdecode } from './../_helpers/jwt'
 
 
 class RegisterUser extends Component {
