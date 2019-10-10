@@ -12,10 +12,11 @@ class Profile extends Component {
           </div>
           <div className="card-body">
             <div className="card-title">
-              <h2>{this.props.user.userName}</h2>
+              <h2>{this.props.user.name}</h2>
             </div>
-            <div className="card-text">{this.props.user.role}</div>
-            <div className="card-text">{this.props.user.email}</div>
+            <div className="card-text"><strong>Usuario:</strong> {this.props.user.userName}</div>
+            <div className="card-text"><strong>Correo:</strong> {this.props.user.email}</div>
+            <div className="card-text"><strong>Rol:</strong> {this.props.user.role}</div>
             <div>
             <i className="fab fa-google-plus-square"></i>
             <i className="fab fa-twitter-square"></i>

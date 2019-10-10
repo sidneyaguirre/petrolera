@@ -144,33 +144,29 @@ class FormEditIncident extends Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col" hidden={this.handleEdition()}>
-            <div className="form-group">
-              <label className="mr-sm-2">
-                <>Responsable</>
-              </label>
-              <SelectDelegate
-                onChange={this.props.onChange}
-                className="form-control"
-                name="assigned"
-                delegate={this.props.formValues.supervisors}
-              />
-            </div>
+        <div className="row pt-3">
+          <div className="col">
+            <label className="mr-sm-2">
+              <>Responsable</>
+            </label>
+            <SelectDelegate
+              onChange={this.props.onChange}
+              className="form-control"
+              name="assigned"
+              delegate={this.props.formValues.supervisors}
+            />
           </div>
 
           <div className="col">
-            <div className="form-group">
-              <label className="mr-sm-2">
-                <>Investigador</>
-              </label>
-              <SelectDelegate
-                onChange={this.props.onChange}
-                className="form-control"
-                name="investigator"
-                delegate={this.props.formValues.investigators}
-              />
-            </div>
+            <label>
+              <>Investigador</>
+            </label>
+            <SelectDelegate
+              onChange={this.props.onChange}
+              className="form-control"
+              name="investigator"
+              delegate={this.props.formValues.investigators}
+            />
           </div>
         </div>
 

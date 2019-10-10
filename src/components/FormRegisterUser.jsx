@@ -33,33 +33,27 @@ class FormRegisterUser extends Component {
                     onChange={this.props.onChange}
                     type="text"
                     className="form-control"
+                    name="name"
+                    maxLength="60"
+                    value={this.props.formValues.name}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="col">
+                <div className="form-group">
+                  <label>
+                    <>Usuario</>
+                  </label>
+                  <input
+                    onChange={this.props.onChange}
+                    type="text"
+                    className="form-control"
                     name="userName"
                     maxLength="60"
                     value={this.props.formValues.userName}
                     required
                   />
-                </div>
-              </div>
-
-              <div className="col">
-                <div className="form-group">
-                  <label>
-                    <>Rol</>
-                  </label>
-                  <select
-                    onChange={this.props.onChange}
-                    type="text"
-                    className="form-control"
-                    name="role"
-                    value={this.props.formValues.role}
-                    required
-                  >
-                    <option value="">Selecione...</option>
-                    <option value="admin">Administrador</option>
-                    <option value="user">Usuario</option>
-                    <option value="investigator">Investigador</option>
-                    <option value="supervisor">Supervisor</option>
-                  </select>
                 </div>
               </div>
             </div>
@@ -110,42 +104,60 @@ class FormRegisterUser extends Component {
           <div className="form-group">
             <div className="form-row">
               <div className="col">
-                <div className="form-group">
-                  <label>
-                    <>Correo</>
-                  </label>
-                  <input
-                    onChange={this.props.onChange}
-                    type="email"
-                    className="form-control"
-                    name="email"
-                    value={this.props.formValues.email}
-                    required
-                  />
-                </div>
+                <label>
+                  <>Correo</>
+                </label>
+                <input
+                  onChange={this.props.onChange}
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  value={this.props.formValues.email}
+                  required
+                />
               </div>
 
               <div className="col">
-                <div className="form-group">
-                  <label>
-                    <>Nombre de la Empresa Proveedora</>
-                  </label>
-                  <select
-                    onChange={this.props.onChange}
-                    type="text"
-                    className="form-control"
-                    name="id_provider"
-                    value={this.props.formValues.id_provider}
-                    required
-                  >
-                    <option value="">Selecione...</option>
-                    <option value="00">Petrolera Corp.</option>
-                    <option value="01">Aseo CleanComp</option>
-                    <option value="02">Transportur</option>
-                  </select>
-                </div>
+                <label>
+                  <>Rol</>
+                </label>
+                <select
+                  onChange={this.props.onChange}
+                  type="text"
+                  className="form-control"
+                  name="role"
+                  value={this.props.formValues.role}
+                  required
+                >
+                  <option value="">Selecione...</option>
+                  <option value="admin">Administrador</option>
+                  <option value="user">Usuario</option>
+                  <option value="investigator">Investigador</option>
+                  <option value="supervisor">Supervisor</option>
+                </select>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="col">
+          <div className="form-group">
+            <label>
+              <>Nombre de la Empresa Proveedora</>
+            </label>
+            <select
+              onChange={this.props.onChange}
+              type="text"
+              className="form-control"
+              name="id_provider"
+              value={this.props.formValues.id_provider}
+              required
+            >
+              <option value="">Selecione...</option>
+              <option value="00">Petrolera Corp.</option>
+              <option value="01">Aseo CleanComp</option>
+              <option value="02">Transportur</option>
+            </select>
           </div>
         </div>
 

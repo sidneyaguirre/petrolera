@@ -67,18 +67,6 @@ class FormReportIncident extends Component {
           </div>
         </div>
 
-        <div className="form-group">
-          <label>Descripción</label>
-          <textarea
-            onChange={this.props.onChange}
-            type="text"
-            className="form-control"
-            name="description"
-            value={this.props.formValues.description}
-            required
-          />
-        </div>
-
         <div className="row">
           <div className="col">
             <div className="form-group">
@@ -95,24 +83,6 @@ class FormReportIncident extends Component {
               />
             </div>
           </div>
-
-          <div className="col">
-            <div className="form-group">
-              <label className="mr-sm-2">
-                <>Fecha y Hora de Clausura</>
-              </label>
-              <input
-                onChange={this.props.onChange}
-                type="datetime-local"
-                className="form-control"
-                name="end_date"
-                value={this.props.formValues.end_date}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
           <div className="col">
             <label className="mr-sm-2">
               <>Impacto</>
@@ -151,6 +121,20 @@ class FormReportIncident extends Component {
               <option value="resuelto">Resuelto</option>
               <option value="cerrado">Cerrado</option>
             </select>
+          </div>
+        </div>
+
+        <div>
+          <div className="form-group">
+            <label>Descripción</label>
+            <textarea
+              onChange={this.props.onChange}
+              type="text"
+              className="form-control"
+              name="description"
+              value={this.props.formValues.description}
+              required
+            />
           </div>
         </div>
 

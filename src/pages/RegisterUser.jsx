@@ -9,6 +9,7 @@ import { jwtdecode } from './../_helpers/jwt'
 class RegisterUser extends Component {
   state = {
     form: {
+      name: "",
       userName: "",
       email: "",
       role: "",
@@ -26,6 +27,7 @@ class RegisterUser extends Component {
 
   clearForm = () => {
     this.setState({
+      name: "",
       userName: "",
       email: "",
       role: "",
@@ -59,9 +61,7 @@ class RegisterUser extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     console.log("Form submitted");
-    this.createUser(this.state.form).then(() => {
-      this.clearForm();
-    });
+    this.createUser(this.state.form);
   };
 
   unequalPasswordsAlert = () => {
@@ -76,8 +76,8 @@ class RegisterUser extends Component {
     var equalPasswords = this.handlePasswords(info.password1, info.password2);
     var decode = jwtdecode (localStorage.currentUser)
     var token = decode.user.jwtoken
-    
     var data = {
+      name: info.name,
       userName: info.userName,
       email: info.email,
       role: info.role,
@@ -102,6 +102,9 @@ class RegisterUser extends Component {
       .then(response => {
         console.log("Success:", response);
         window.alert('Resultado: '+ JSON.stringify(response.response.msg));
+        if (response.ok) {
+            this.clearForm();
+        }
       });
   };
 

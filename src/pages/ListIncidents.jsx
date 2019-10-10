@@ -17,10 +17,11 @@ class ListIncidents extends Component {
     fetch(url)
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
-      .then(response => {
-        console.log("Success:", response);
-        window.alert("Resultado: " + JSON.stringify(response.response.msg));
-      })
+      // .catch(response => {
+      //   /* this THEN (changed to "catch" to skip it) is intended when the DB has no incidents registered yet */
+      //   console.log("Success:", response);
+      //   window.alert("Resultado: " + JSON.stringify(response.response.msg));
+      // })
       .then(info => {
         if (info !== undefined) {
           Promise.all(
@@ -52,16 +53,34 @@ class ListIncidents extends Component {
 
   /* get incidents for investigators and supervisors*/
   getIncidentsSI() {
-    var url = `https://ing-web-project.herokuapp.com/incidents`;
+    var url = `https://ing-web-project.herokuapp.com/incidentsbydelegate`;
     var incidents = [];
-    fetch(url)
-      .then(res => res.json())
-      .catch(error => console.error("Error:", error))
-      .then(response => {
-        console.log("Success:", response);
-        window.alert("Resultado: " + JSON.stringify(response.response.msg));
-      })
-      .then(info => {
+    var decode = jwtdecode(localStorage.currentUser);
+    var type = "";
+    var user = decode.user.name;
+    var role = decode.user.role;
+    if (role === "supervisor") {
+      type = "assigned";
+    } else if (role === "investigator") {
+      type = "investigator";
+    }
+    var data = {
+      name: user,
+      type: type
+    };
+    console.log("data", data);
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error))
+    .then(info => {
+      console.log("info", info.response);
+      if (info !== undefined) {
         Promise.all(
           info.response.incidents.map(element => {
             if (element !== null) {
@@ -85,7 +104,9 @@ class ListIncidents extends Component {
             incidents: [].concat(this.state.incidents, incidents)
           });
         });
-      });
+        console.log("state", this.state);
+      }
+    });
   }
 
   isAdmin() {
@@ -109,8 +130,10 @@ class ListIncidents extends Component {
 
   componentDidMount() {
     if (this.isAdmin()) {
+      console.log("is Admin");
       this.getIncidentsForAdmin();
     } else if (this.isAllowed) {
+      console.log("is supervisor or investigator");
       this.getIncidentsSI();
     } else {
       console.log("This is someone else");
