@@ -39,17 +39,14 @@ class ReportIncident extends Component {
   componentDidMount = () => {
     var decode = jwtdecode (localStorage.currentUser)
     var user = decode.user.name
-    console.log("name", user);
-    console.log("username", decode.user.userName);
-    
     this.setState({
       form: {
         ...this.state.form,
         createdBy: user
       }
-    });
-    console.log(this.state.form.createdBy);
-    
+    }, () => {
+      console.log(this.state.form);
+    })
   };
 
   handleChange = e => {

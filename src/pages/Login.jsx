@@ -45,8 +45,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div className="login mx-auto d-block">
-          <img src={logo} className="logo rounded mx-auto d-bloc" alt="logo" />
+        <div className="login mx-auto d-block mt-7">
+          <img src={logo} className="logo rounded mx-auto d-bloc mt-5" alt="logo" />
         </div>
         <div className="login">
           <h1>Iniciar Sesión</h1>

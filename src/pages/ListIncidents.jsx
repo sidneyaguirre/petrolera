@@ -101,6 +101,8 @@ class ListIncidents extends Component {
           });
         });
       }
+      console.log(this.state.incidents);
+      
     });
   }
 
@@ -125,10 +127,8 @@ class ListIncidents extends Component {
 
   componentDidMount() {
     if (this.isAdmin()) {
-      console.log("is Admin");
       this.getIncidentsForAdmin();
     } else if (this.isAllowed) {
-      console.log("is supervisor or investigator");
       this.getIncidentsSI();
     } else {
       console.log("This is someone else");
