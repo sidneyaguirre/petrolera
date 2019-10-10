@@ -8,8 +8,7 @@ import "../styles/profile.css";
 
 class ListIncidents extends Component {
   state = {
-    incidents: [],
-
+    incidents: []
   };
 
   getIncidentsForAdmin() {
@@ -18,30 +17,36 @@ class ListIncidents extends Component {
     fetch(url)
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
+      .then(response => {
+        console.log("Success:", response);
+        window.alert("Resultado: " + JSON.stringify(response.response.msg));
+      })
       .then(info => {
-        Promise.all(
-          info.response.incidents.map(element => {
-            if (element !== null) {
-              incidents.push({
-                id: element.id,
-                title: element.title,
-                category: element.category,
-                description: element.description,
-                impact: element.impact,
-                createdBy: element.createdBy,
-                assigned: element.assigned,
-                investigator: element.investigator,
-                start_date: element.start_date,
-                end_date: element.end_date,
-                state: element.state
-              });
-            }
-          })
-        ).then(() => {
-          this.setState({
-            incidents: [].concat(this.state.incidents, incidents)
+        if (info !== undefined) {
+          Promise.all(
+            info.response.incidents.map(element => {
+              if (element !== null) {
+                incidents.push({
+                  id: element.id,
+                  title: element.title,
+                  category: element.category,
+                  description: element.description,
+                  impact: element.impact,
+                  createdBy: element.createdBy,
+                  assigned: element.assigned,
+                  investigator: element.investigator,
+                  start_date: element.start_date,
+                  end_date: element.end_date,
+                  state: element.state
+                });
+              }
+            })
+          ).then(() => {
+            this.setState({
+              incidents: [].concat(this.state.incidents, incidents)
+            });
           });
-        });
+        }
       });
   }
 
@@ -52,6 +57,10 @@ class ListIncidents extends Component {
     fetch(url)
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
+      .then(response => {
+        console.log("Success:", response);
+        window.alert("Resultado: " + JSON.stringify(response.response.msg));
+      })
       .then(info => {
         Promise.all(
           info.response.incidents.map(element => {
@@ -101,11 +110,15 @@ class ListIncidents extends Component {
   componentDidMount() {
     if (this.isAdmin()) {
       this.getIncidentsForAdmin();
-    } else if(this.isAllowed){
+    } else if (this.isAllowed) {
       this.getIncidentsSI();
     } else {
       console.log("This is someone else");
-      return (<div><h2>Función No permitida</h2></div>)
+      return (
+        <div>
+          <h2>Función No permitida</h2>
+        </div>
+      );
     }
   }
 
