@@ -32,7 +32,7 @@ class FormRegisterUser extends Component {
                   <input
                     onChange={this.props.onChange}
                     type="text"
-                    className="form-control"
+                    className="form-control text-capitalize"
                     name="name"
                     maxLength="60"
                     value={this.props.formValues.name}

@@ -68,7 +68,6 @@ class ListIncidents extends Component {
       name: user,
       type: type
     };
-    console.log("data", data);
     fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
@@ -79,7 +78,6 @@ class ListIncidents extends Component {
     .then(res => res.json())
     .catch(error => console.error("Error:", error))
     .then(info => {
-      console.log("info", info.response);
       if (info !== undefined) {
         Promise.all(
           info.response.incidents.map(element => {
@@ -104,7 +102,6 @@ class ListIncidents extends Component {
             incidents: [].concat(this.state.incidents, incidents)
           });
         });
-        console.log("state", this.state);
       }
     });
   }

@@ -71,7 +71,7 @@ class FormReportIncident extends Component {
           <div className="col">
             <div className="form-group">
               <label className="mr-sm-2">
-                <>Fecha y Hora de Apertura</>
+                <>Fecha y Hora del Suceso</>
               </label>
               <input
                 onChange={this.props.onChange}

@@ -74,7 +74,7 @@ class FormEditIncident extends Component {
           <div className="col">
             <div className="form-group">
               <label className="mr-sm-2">
-                <>Fecha y Hora de Apertura</>
+                <>Fecha y Hora del Suceso</>
               </label>
               <input
                 type="datetime-local"
@@ -145,7 +145,7 @@ class FormEditIncident extends Component {
         </div>
 
         <div className="row pt-3">
-          <div className="col">
+          <div className="col" hidden={this.handleEdition()}>
             <label className="mr-sm-2">
               <>Responsable</>
             </label>

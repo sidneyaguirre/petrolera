@@ -48,13 +48,13 @@ class CardIncident extends Component {
                     </div>
                   </div>
 
-                  <div className="row">
+                  <div className="row pt-3">
                     <div className="is-font-small ml-3 mr-3">
                       <strong>Fecha Suceso:</strong> {incident.start_date}
                     </div>
                   </div>
 
-                  <div className="row">
+                  <div className="row pb-3">
                     <div className="is-font-small ml-3 mr-3">
                       <strong>Fecha Clausura:</strong> {incident.end_date}
                     </div>

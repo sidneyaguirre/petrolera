@@ -37,10 +37,8 @@ class ReportIncident extends Component {
 
 
   componentDidMount = () => {
-    // let user = JSON.parse(localStorage.currentUser).userName;
     var decode = jwtdecode (localStorage.currentUser)
-    var user = decode.user.userName
-
+    var user = decode.user.name
     this.setState({
       form: {
         ...this.state.form,
