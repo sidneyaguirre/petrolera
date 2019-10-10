@@ -91,7 +91,7 @@ class ReportIncident extends Component {
       .then(res => res.json())
       .catch(error => console.error("Error:", error))
       .then(response => {
-        console.log("Success:", response);
+        // console.log("Success:", response);
         window.alert("Resultado: " + JSON.stringify(response.response.msg));
       });
   };
