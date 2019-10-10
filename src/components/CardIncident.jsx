@@ -30,35 +30,33 @@ class CardIncident extends Component {
                   </h5>
                 </div>
                 <div className="card-body pb-0">
-                  <table className="table table-borderless">
-                    <thead>
-                      <tr className="p-1">
-                        <th scope="col">Estado</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Impacto</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="p-1">
-                        <td>{incident.state}</td>
-                        <td>{incident.category}</td>
-                        <td>{incident.impact}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
                   <div className="row">
-                    <div className="is-font-small ml-3 mr-3">
-                      <strong>Fecha Suceso:</strong> {incident.start_date}
-                      <br />
+                    <div className="col">
+                      <div className="is-font-small ml-3">
+                        <strong>Estado:</strong> {incident.state}
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="is-font-small ml-3">
+                        <strong>Categoría:</strong> {incident.category}
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="is-font-small ml-3">
+                        <strong>Impacto:</strong> {incident.impact}
+                      </div>
                     </div>
                   </div>
 
                   <div className="row">
                     <div className="is-font-small ml-3 mr-3">
-                      <strong>Fecha Clausura:</strong>
-                      {incident.end_date}
-                      <br />
+                      <strong>Fecha Suceso:</strong> {incident.start_date}
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="is-font-small ml-3 mr-3">
+                      <strong>Fecha Clausura:</strong> {incident.end_date}
                     </div>
                   </div>
 
@@ -72,7 +70,7 @@ class CardIncident extends Component {
 
                 <div className="card-footer">
                   <div className="row ml-3 mr-3">
-                    <div className="is-font-small ml-3 mr-3">
+                    <div className="is-font-small ml-3">
                       <strong>Creado por:</strong> {incident.createdBy}
                     </div>
                     <div className="is-font-small ml-3 mr-3">

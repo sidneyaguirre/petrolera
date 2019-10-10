@@ -29,22 +29,40 @@ class FormReportIncident extends Component {
             </div>
           </div>
 
-          <input hidden type="text" name="createdBy" value={this.props.createdBy} readOnly required></input>
+          <input
+            hidden
+            type="text"
+            name="createdBy"
+            value={this.props.createdBy}
+            readOnly
+            required
+          ></input>
 
           <div className="col">
             <div className="form-group">
               <label>
                 <>Categoría</>
               </label>
-              <input
+              <select
                 onChange={this.props.onChange}
                 type="text"
                 className="form-control"
                 name="category"
-                maxLength="30"
                 value={this.props.formValues.category}
                 required
-              />
+              >
+                <option value="">Selecione...</option>
+                <option value="accidente">Accidente</option>
+                <option value="deliberado">Acto Deliverado</option>
+                <option value="infraestructura">Infraestructura</option>
+                <option value="desastre_natural">Desastre Natural</option>
+                <option value="asuntos_legales">Asuntos legales</option>
+                <option value="asuntos_negocio">Asuntos de negocio</option>
+                <option value="it_hardware">IT Hardware</option>
+                <option value="it_software">IT Software</option>
+                <option value="procedimental">Procedimental</option>
+                <option value="servicios">Servicios</option>
+              </select>
             </div>
           </div>
         </div>
@@ -129,16 +147,14 @@ class FormReportIncident extends Component {
               <option value="">Selecione...</option>
               <option value="abierto">Abierto</option>
               <option value="en_proceso">En proceso</option>
-              <option value="suspendido">Suspendido</option>
+              <option value="en_espera">En espera</option>
+              <option value="resuelto">Resuelto</option>
               <option value="cerrado">Cerrado</option>
             </select>
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-outline-primary float-right"
-        >
+        <button type="submit" className="btn btn-outline-primary float-right">
           Guardar Reporte
         </button>
       </form>
