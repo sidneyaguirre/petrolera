@@ -1,3 +1,11 @@
+
+[Backend](https://github.com/sidneyaguirre/ing-web-project)
+
+## Layers
+- Data Base: Firebase
+- Backend: Express y Mongo
+- Frontend: React
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
