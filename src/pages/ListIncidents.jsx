@@ -143,7 +143,7 @@ class ListIncidents extends Component {
       <div className="page">
         <Navbar className="navbar" />
         <div className="content">
-          <div className="list">
+          <div className="list mt-5">
             <div className="col">
               <CardIncident className="card" data={this.state.incidents} />
             </div>
