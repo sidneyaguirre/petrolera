@@ -100,9 +100,7 @@ class ListIncidents extends Component {
             incidents: [].concat(this.state.incidents, incidents)
           });
         });
-      }
-      console.log(this.state.incidents);
-      
+      }     
     });
   }
 

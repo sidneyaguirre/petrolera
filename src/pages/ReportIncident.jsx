@@ -44,8 +44,6 @@ class ReportIncident extends Component {
         ...this.state.form,
         createdBy: user
       }
-    }, () => {
-      console.log(this.state.form);
     })
   };
 
