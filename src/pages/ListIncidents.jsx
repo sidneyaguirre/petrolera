@@ -4,8 +4,6 @@ import Navbar from "../components/Navbar";
 import CardIncident from "../components/CardIncident";
 import { jwtdecode } from "./../_helpers/jwt";
 
-import "../styles/profile.css";
-
 class ListIncidents extends Component {
   state = {
     incidents: []

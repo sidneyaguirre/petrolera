@@ -39,12 +39,17 @@ class ReportIncident extends Component {
   componentDidMount = () => {
     var decode = jwtdecode (localStorage.currentUser)
     var user = decode.user.name
+    console.log("name", user);
+    console.log("username", decode.user.userName);
+    
     this.setState({
       form: {
         ...this.state.form,
         createdBy: user
       }
     });
+    console.log(this.state.form.createdBy);
+    
   };
 
   handleChange = e => {
@@ -101,7 +106,7 @@ class ReportIncident extends Component {
       <div className="page">
         <Navbar className="navbar" />
         <div className="content">
-          <div className="row p-4 pt-5 h-100">
+          <div className="pt-4">
             <div className="col-sm">
               <FormReportIncident
                 onChange={this.handleChange}

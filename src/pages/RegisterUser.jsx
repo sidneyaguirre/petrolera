@@ -113,7 +113,7 @@ class RegisterUser extends Component {
       <div className="page">
         <Navbar className="navbar" />
         <div className="content">
-          <div className="row p-4 pt-5 h-100">
+          <div className="pt-4">
             <div className="col">
               <FormRegisterUser
                 id="register-user"
